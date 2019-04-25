@@ -1,5 +1,5 @@
 {
-  "name": "@burdanews/hbm_bn_styles",
+  "name": "@burdanews/hbm-bn-frontend",
   "version": "1.0.0",
   "description": "Helper styles for HBM BurdaNews projects using bootstrap / fontawesome / jQuery / jQuery UI.",
   "keywords": [
@@ -14,17 +14,17 @@
   "license": "CC-BY-NC-SA-4.0",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/burdanews/npm_pkg_hbm_bn_styles.git"
+    "url": "git+ssh://git@github.com/burdanews/npm_pkg_hbm_bn_frontend.git"
   },
   "bugs": {
-    "url": "https://github.com/burdanews/npm_pkg_hbm_bn_styles/issues"
+    "url": "https://github.com/burdanews/npm_pkg_hbm_bn_frontend/issues"
   },
   "dependencies": {
     "bootstrap": "^4.3.1"
   },
   "devDependencies": {},
   "main": "",
-  "sass": "scss/hbm_bn_styles.scss",
+  "sass": "scss/hbm-bn-styles.scss",
   "scripts": {},
   "files": [
     "scss/**/*.scss"

@@ -1,4 +1,4 @@
-# HBM BurdaNews Styles
+# HBM BurdaNews Frontend
 
 A BurdaNews GmbH project.
 
