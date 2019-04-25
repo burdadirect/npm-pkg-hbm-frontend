@@ -27,6 +27,7 @@
   "sass": "scss/hbm-bn-styles.scss",
   "scripts": {},
   "files": [
-    "scss/**/*.scss"
+    "scss/**/*.scss",
+    "js/**/*.js"
   ]
 }
