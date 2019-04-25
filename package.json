@@ -1,5 +1,5 @@
 {
-  "name": "hbm_bn_styles",
+  "name": "@burdanews/hbm_bn_styles",
   "version": "1.0.0",
   "description": "Helper styles for HBM BurdaNews projects using bootstrap / fontawesome / jQuery / jQuery UI.",
   "keywords": [
@@ -11,12 +11,6 @@
     "front-end"
   ],
   "author": "Christian Puchinger <puchinger@burda.com>",
-  "contributors": [
-    {
-      "name": "Christian Puchinger",
-      "email": "puchinger@burda.com"
-    }
-  ],
   "license": "CC-BY-NC-SA-4.0",
   "repository": {
     "type": "git",
@@ -28,6 +22,7 @@
   "dependencies": {
     "bootstrap": "^4.3.1"
   },
+  "devDependencies": {},
   "main": "",
   "sass": "scss/hbm_bn_styles.scss",
   "scripts": {},
