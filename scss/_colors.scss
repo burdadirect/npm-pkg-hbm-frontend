@@ -17,3 +17,25 @@
 .hbm-color-bg-secondary {
   background-color: $hbm-color-secondary;
 }
+
+/******************************************************************************/
+
+@each $name, $color in $hbm-colors {
+  .hbm-color {
+    &.#{$name} {
+      color: $color;
+    }
+  }
+
+  .hbm-color-fill {
+    &.#{$name} {
+      fill: $color;
+    }
+  }
+
+  .hbm-color-bg {
+    &.#{$name} {
+      background-color: $color;
+    }
+  }
+}

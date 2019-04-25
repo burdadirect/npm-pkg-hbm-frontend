@@ -1,0 +1,13 @@
+/******************************************************************************/
+/* TOGGABLES                                                                  */
+/******************************************************************************/
+
+@each $hbm-toggable-item in $hbm-toggable-items {
+  .toggable-#{$hbm-toggable-item} {
+    display: none;
+
+    body.visible-#{$hbm-toggable-item} & {
+      display: initial;
+    }
+  }
+}

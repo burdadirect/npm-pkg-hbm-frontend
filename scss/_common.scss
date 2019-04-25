@@ -10,16 +10,6 @@
   font-size: 1rem;
 }
 
-@each $hbm-toggable-item in $hbm-toggable-items {
-  .toggable-#{$hbm-toggable-item} {
-    display: none;
-
-    body.visible-#{$hbm-toggable-item} & {
-      display: initial;
-    }
-  }
-}
-
 @each $percent in (90, 80, 70, 60, 50, 40, 30, 20) {
   .mini-#{$percent} {
     font-size: percentage($percent/100);
