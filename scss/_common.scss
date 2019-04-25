@@ -10,11 +10,11 @@
   font-size: 1rem;
 }
 
-@each $toggable-item in $toggable-items {
-  .toggable-#{$toggable-item} {
+@each $hbm-toggable-item in $hbm-toggable-items {
+  .toggable-#{$hbm-toggable-item} {
     display: none;
 
-    body.visible-#{$toggable-item} & {
+    body.visible-#{$hbm-toggable-item} & {
       display: initial;
     }
   }

@@ -3,10 +3,10 @@
 /******************************************************************************/
 
 td,th {
-  @each $width in $table-cell-widths {
-    &.fixed-#{$width}-center {
+  @each $hbm-table-cell-width in $hbm-table-cell-widths {
+    &.fixed-#{$hbm-table-cell-width}-center {
       text-align: center;
-      width: #{$width}px;
+      width: #{$hbm-table-cell-width}px;
     }
   }
 }
