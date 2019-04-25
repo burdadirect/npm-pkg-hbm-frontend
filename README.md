@@ -15,6 +15,13 @@ Define the following colors:
 $hbm-color-text: #XXXXXX;
 $hbm-color-highlight: #XXXXXX;
 $hbm-color-secondary: #XXXXXX;
+
+// Prepare bootstrap variables
+$theme-colors: (
+  primary: $hbm-color-highlight,
+  secondary: $hbm-color-secondary,
+);
+$body-color: $hbm-color-text;
 ```
 
 Optionally define the following maps:

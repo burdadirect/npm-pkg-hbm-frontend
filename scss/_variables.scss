@@ -2,22 +2,14 @@
 /* VARIABLES                                                                  */
 /******************************************************************************/
 
-$hbm-color-text: $gray-900 !default;
-$hbm-color-highlight: $primary !default;
-$hbm-color-secondary: $secondary !default;
+$hbm-color-text:       $gray-900 !default;
+$hbm-color-highlight:  $primary !default;
+$hbm-color-secondary:  $secondary !default;
 
 $hbm-toggable-items: () !default;
 $hbm-table-cell-widths: (10, 25, 50, 75, 100, 125, 150, 200, 250);
 
 /******************************************************************************/
-
-// Bootstrap theme colors
-$theme-colors: map-merge($theme-colors, (
-  primary: $hbm-color-highlight,
-  secondary: $hbm-color-secondary,
-));
-
-$body-color: $hbm-color-text;
 
 $table-hover-bg: rgba(0,0,0,.045);
 $table-accent-bg: $table-hover-bg;
