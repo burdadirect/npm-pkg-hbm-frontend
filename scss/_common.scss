@@ -1,0 +1,45 @@
+/******************************************************************************/
+/* COMMON                                                                     */
+/******************************************************************************/
+
+.highlight {
+  color: $hbm-color-highlight;
+}
+
+.text-normal {
+  font-size: 1rem;
+}
+
+@each $toggable-item in $toggable-items {
+  .toggable-#{$toggable-item} {
+    display: none;
+
+    body.visible-#{$toggable-item} & {
+      display: initial;
+    }
+  }
+}
+
+@each $percent in (90, 80, 70, 60, 50, 40, 30, 20) {
+  .mini-#{$percent} {
+    font-size: percentage($percent/100);
+  }
+}
+
+mark {
+  background-color: yellow;
+  display: inline-block;
+}
+
+code.pre {
+  white-space: pre;
+}
+
+.reasonable-paragraph-margins {
+  p:first-child {
+    margin-top: 0;
+  }
+  p:last-child {
+    margin-bottom: 0;
+  }
+}

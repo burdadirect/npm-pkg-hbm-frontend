@@ -1,0 +1,26 @@
+/******************************************************************************/
+/* BUTTONS                                                                    */
+/******************************************************************************/
+
+.btn {
+  cursor: pointer;
+}
+
+.btn-flex {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+
+  ul.nav li.nav-item & {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+.btn-text-truncate {
+  .btn-text {
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

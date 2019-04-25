@@ -1,0 +1,66 @@
+/******************************************************************************/
+/* TABLES                                                                     */
+/******************************************************************************/
+
+td,th {
+  @each $width in $table-cell-widths {
+    &.fixed-#{$width}-center {
+      text-align: center;
+      width: #{$width}px;
+    }
+  }
+}
+
+table.table-xs {
+  th,
+  td {
+    padding: 0.1rem;
+  }
+}
+
+td,th {
+  &.no-wrap {
+    white-space: nowrap;
+  }
+}
+
+table.break-words {
+    word-wrap: break-word;
+}
+
+table.table-nonfluid {
+    width: auto !important;
+}
+
+td, th {
+  &.list-group-cell-narrow {
+    padding-top: $table-cell-padding - 0.3rem;
+    padding-bottom: $table-cell-padding - 0.3rem;
+  }
+}
+
+@each $color, $value in $theme-colors {
+    .table-bordered-colored.table-#{$color} {
+        th {
+            background-color: theme-color-level($color, -7);
+            border-color: theme-color-level($color, -3);
+        }
+        td {
+            border-color: theme-color-level($color, -3);
+        }
+
+        .list-group-flush {
+            .list-group-item {
+                border-color: theme-color-level($color, -3);
+            }
+        }
+    }
+}
+
+table.table-bordered {
+    .list-group-flush {
+        .list-group-item {
+            border-color: $table-border-color;
+        }
+    }
+}

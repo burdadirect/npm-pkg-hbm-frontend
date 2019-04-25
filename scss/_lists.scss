@@ -1,0 +1,27 @@
+/******************************************************************************/
+/* LISTS                                                                      */
+/******************************************************************************/
+
+.list-narrow {
+  padding-left: 2em;
+}
+
+.list-group-transparent {
+  .list-group-item {
+    background-color: transparent;
+  }
+}
+
+.list-group-narrow {
+  .list-group-item {
+    padding: 0.3rem 0.6rem
+  }
+}
+
+.padded-like-list-group {
+  padding: $list-group-item-padding-y $list-group-item-padding-x;
+}
+
+.padded-like-list-group-narrow {
+  padding: 0.3rem 0.6rem;
+}

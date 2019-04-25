@@ -1,0 +1,15 @@
+/******************************************************************************/
+/* CARDS                                                                      */
+/******************************************************************************/
+
+.card.card-narrow {
+  > .card-header,
+  > .card-body,
+  > .card-footer {
+    padding: $card-spacer-y/2 $card-spacer-x/2;
+  }
+
+  > .list-group > .list-group-item {
+    padding: $list-group-item-padding-y/2 $list-group-item-padding-x/2;
+  }
+}

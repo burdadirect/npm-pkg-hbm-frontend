@@ -1,0 +1,44 @@
+/******************************************************************************/
+/* Notifications                                                              */
+/******************************************************************************/
+
+#notifications {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 300px;
+
+  .notification {
+    margin: 10px 10px 10px 10px;
+
+    .notification-content {
+      opacity: 0.95;
+      text-align: center;
+      font-size: 13px;
+      background-color: #efefef;
+      border: 1px solid #aaaaaa;
+      padding: 10px;
+
+      @each $color, $value in $theme-colors {
+        &.notification-level-#{$color} {
+          @include alert-variant(theme-color-level($color, $alert-bg-level), theme-color-level($color, $alert-border-level), theme-color-level($color, $alert-color-level));
+        }
+      }
+
+      .notification-text {
+        padding: 0;
+        margin: 0;
+      }
+
+      .notification-hint {
+        padding: 0;
+        margin: 15px 0 0 0;
+        font-size: 9px;
+      }
+
+      ul {
+        padding-left: 15px !important;
+      }
+    }
+  }
+}
