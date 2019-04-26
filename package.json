@@ -20,12 +20,32 @@
     "url": "https://github.com/burdanews/npm_pkg_hbm_bn_frontend/issues"
   },
   "dependencies": {
-    "bootstrap": "^4.3.1"
+    "bootstrap": "^4.3.1",
+    "autoprefixer": "^8.6.5",
+    "cssnano": "^3.10.0",
+    "del": "^3.0",
+    "files-exist": "^1.0",
+    "gulp": "^4.0.1",
+    "gulp-concat": "^2.6",
+    "gulp-css-url-adjuster": "^0.2",
+    "gulp-css-url-rebase": "^0.2",
+    "gulp-eslint": "^4.0",
+    "gulp-notify": "^3.0",
+    "gulp-postcss": "^7.0",
+    "gulp-print": "^5.0.2",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-svg-sprite": "^1.5.0",
+    "gulp-uglify": "^3.0.2",
+    "postcss-flexbugs-fixes": "^3.3.1",
+    "require-dir": "^1.2.0"
   },
   "devDependencies": {},
-  "main": "",
+  "main": "gulp/hbm-bn-gulp-tasks.js",
   "sass": "scss/hbm-bn-styles.scss",
-  "scripts": {},
+  "scripts": {
+    "gulp": "./node_modules/.bin/gulp"
+  },
   "files": [
     "scss/**/*.scss",
     "js/**/*.js"
