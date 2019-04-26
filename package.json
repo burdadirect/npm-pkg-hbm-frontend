@@ -48,6 +48,7 @@
   },
   "files": [
     "scss/**/*.scss",
+    "gulp/**/*.js",
     "js/**/*.js"
   ]
 }

@@ -4,10 +4,15 @@ var eslint = require('gulp-eslint');
 var notify = require('gulp-notify');
 var filesExist = require('files-exist');
 
-
 module.exports = {
   init: function (gulp, config) {
     'use strict';
+
+    config.tasks = {
+      scripts: require('./tasks/scripts.js'),
+      styles: require('./tasks/styles.js'),
+      svg: require('./tasks/svg.js')
+    };
 
     /* ********************************************************************** */
     /* CONFIGS                                                                */
