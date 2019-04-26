@@ -38,7 +38,7 @@ module.exports = {
 
     // Lint gulp tasks and configs
     gulp.task('lint', function () {
-      gulp.src(config.paths.scripts.lint)
+      return gulp.src(config.paths.scripts.lint)
         .pipe(eslint())
         .pipe(eslint.format())
         .pipe(notify('Gulp linted!'));
@@ -120,7 +120,7 @@ module.exports = {
     /* ********************************************************************** */
 
     // Watch configuration.
-    gulp.task('watch', function () {
+    gulp.task('watch', async function () {
       gulp.watch(config.paths.scripts.watch, gulp.series(['lint']));
 
       _.each(config.configs, function (configValue, configKey) {
@@ -138,7 +138,5 @@ module.exports = {
 
     // Default task and watch configuration.
     gulp.task('default', gulp.series(['dev', 'watch']));
-
-    return gulp;
   }
 };
