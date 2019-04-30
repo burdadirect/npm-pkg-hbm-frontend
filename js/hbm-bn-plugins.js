@@ -70,22 +70,13 @@ jQuery.fn.hbm_initCollapsibleCards = function () {
       if (jQuery(this).attr('data-card-collapsible') === 'closed') {
         icon = '<i class="fa fa-chevron-down"></i>';
       }
-      jQuery(this).find('.card-header').append('<span class="btn btn-secondary float-right" data-card-collapsible-toggle="">' + icon + '</span>');
-    });
-
-    $element.on('click', '[data-hbmin-toogle-class]', function (event) {
-      event.preventDefault();
-
-      var config = jQuery(this).hbmin_attrJson('data-hbmin-toogle-class');
-      jQuery.each(config, function (key, value) {
-        jQuery(value.t).toggleClass(value.c);
-      });
+      jQuery(this).find('> .card-header').append('<span class="btn btn-secondary float-right" data-card-collapsible-toggle="">' + icon + '</span>');
     });
 
     $element.on('click', '[data-card-collapsible-toggle]', function (event) {
       event.preventDefault();
 
-      jQuery(this).closest('[data-card-collapsible]').find('.card-body').not('.hbmin-form-header-text').toggle();
+      jQuery(this).closest('[data-card-collapsible]').find('> .card-body').not('.hbm-form-header-text').toggle();
       jQuery(this).find('.fa-chevron-up,.fa-chevron-down').toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
     });
   });
