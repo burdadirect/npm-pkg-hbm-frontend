@@ -83,3 +83,28 @@ jQuery.fn.hbm_initCollapsibleCards = function () {
 
   return this;
 };
+
+
+jQuery.fn.hbm_initToggables = function (options) {
+  'use strict';
+
+  var settings = jQuery.extend({
+    target: 'body',
+  }, options);
+
+  var $target = jQuery(settings['target']);
+
+  this.each(function () {
+    var $element = jQuery(this);
+
+    $element.on('click', '[data-toggable]', function (event) {
+      event.preventDefault();
+
+      var what = jQuery(this).attr('data-toggable');
+      jQuery('[data-toggable="' + what + '"]').toggleClass('active');
+      $target.toggleClass('visible-' + what);
+    });
+  });
+
+  return this;
+};
