@@ -20,12 +20,12 @@
     "url": "https://github.com/burdanews/npm_pkg_hbm_bn_frontend/issues"
   },
   "dependencies": {
-    "bootstrap": "^4.3.1",
     "autoprefixer": "^8.6.5",
+    "bootstrap": "^4.3.1",
     "cssnano": "^3.10.0",
     "del": "^3.0",
     "files-exist": "^1.0",
-    "gulp": "^4.0.1",
+    "gulp": "^4.0.2",
     "gulp-concat": "^2.6",
     "gulp-css-url-adjuster": "^0.2",
     "gulp-css-url-rebase": "^0.2",
