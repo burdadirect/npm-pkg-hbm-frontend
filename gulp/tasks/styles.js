@@ -38,7 +38,7 @@ var Tasks = function () {
         }).on('error', sass.logError))
       .pipe(postCss([
         postCssAutoPrefixer({
-          browsers: ['last 2 versions']
+          browserslist: ['last 2 versions']
         }),
         postCssFlexbugsFixes
       ]))
@@ -64,7 +64,7 @@ var Tasks = function () {
       }))
       .pipe(postCss([
         postCssAutoPrefixer({
-          browsers: ['last 2 versions']
+          browserslist: ['last 2 versions']
         }),
         postCssFlexbugsFixes,
         postCssCssNano
