@@ -37,9 +37,7 @@ var Tasks = function () {
           relativeAssets: false
         }).on('error', sass.logError))
       .pipe(postCss([
-        postCssAutoPrefixer({
-          browserslist: ['last 2 versions']
-        }),
+        postCssAutoPrefixer(),
         postCssFlexbugsFixes
       ]))
       .pipe(concat(config.paths.styles.output.file))
@@ -63,9 +61,7 @@ var Tasks = function () {
         relativeAssets: false
       }))
       .pipe(postCss([
-        postCssAutoPrefixer({
-          browserslist: ['last 2 versions']
-        }),
+        postCssAutoPrefixer(),
         postCssFlexbugsFixes,
         postCssCssNano
       ]))
