@@ -73,7 +73,7 @@
   }
 
   &[data-card-collapsible="closed"] {
-    > .card-body.hbm-form-body {
+    > .card-body.hbm-form-body.hbm-form-body-collapsible {
       display: none;
     }
   }
