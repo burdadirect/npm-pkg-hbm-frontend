@@ -65,12 +65,12 @@ jQuery.fn.hbm_initCollapsibleCards = function () {
   this.each(function () {
     var $element = jQuery(this);
 
-    $element.find('[data-card-collapsible="closed"])').each(function () {
+    $element.find('[data-card-collapsible="closed"]').each(function () {
       var icon = '<i class="fa fa-chevron-down"></i>';
       jQuery(this).find('> .card-header.hbm-form-header').append('<span class="btn btn-secondary float-right" data-card-collapsible-toggle="">' + icon + '</span>');
     });
 
-    $element.find('[data-card-collapsible="open"])').each(function () {
+    $element.find('[data-card-collapsible="open"]').each(function () {
       var icon = '<i class="fa fa-chevron-up"></i>';
       jQuery(this).find('> .card-header.hbm-form-header').append('<span class="btn btn-secondary float-right" data-card-collapsible-toggle="">' + icon + '</span>');
     });
