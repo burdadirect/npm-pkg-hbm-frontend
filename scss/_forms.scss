@@ -35,7 +35,7 @@
 }
 
 .hbm-form-card {
-  &.card > .card-header {
+  &.card > .card-header.hbm-form-header {
     font-size: 1.5rem;
 
     label {
@@ -43,7 +43,7 @@
     }
   }
 
-  &.card > .card-body {
+  &.card > .card-body.hbm-form-body {
     &.hbm-form-header-text {
       background-color: $card-cap-bg;
       border-bottom: $card-border-width solid $card-border-color;
@@ -73,7 +73,7 @@
   }
 
   &[data-card-collapsible="closed"] {
-    > .card-body:not(.hbm-form-header-text) {
+    > .card-body.hbm-form-body {
       display: none;
     }
   }

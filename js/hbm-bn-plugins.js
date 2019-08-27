@@ -65,18 +65,20 @@ jQuery.fn.hbm_initCollapsibleCards = function () {
   this.each(function () {
     var $element = jQuery(this);
 
-    $element.find('[data-card-collapsible]').each(function () {
+    $element.find('[data-card-collapsible="closed"])').each(function () {
+      var icon = '<i class="fa fa-chevron-down"></i>';
+      jQuery(this).find('> .card-header.hbm-form-header').append('<span class="btn btn-secondary float-right" data-card-collapsible-toggle="">' + icon + '</span>');
+    });
+
+    $element.find('[data-card-collapsible="open"])').each(function () {
       var icon = '<i class="fa fa-chevron-up"></i>';
-      if (jQuery(this).attr('data-card-collapsible') === 'closed') {
-        icon = '<i class="fa fa-chevron-down"></i>';
-      }
-      jQuery(this).find('> .card-header').append('<span class="btn btn-secondary float-right" data-card-collapsible-toggle="">' + icon + '</span>');
+      jQuery(this).find('> .card-header.hbm-form-header').append('<span class="btn btn-secondary float-right" data-card-collapsible-toggle="">' + icon + '</span>');
     });
 
     $element.on('click', '[data-card-collapsible-toggle]', function (event) {
       event.preventDefault();
 
-      jQuery(this).closest('[data-card-collapsible]').find('> .card-body').not('.hbm-form-header-text').toggle();
+      jQuery(this).closest('[data-card-collapsible]').find('> .card-body.hbm-form-body').not('.hbm-form-header-text').toggle();
       jQuery(this).find('.fa-chevron-up,.fa-chevron-down').toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
     });
   });
