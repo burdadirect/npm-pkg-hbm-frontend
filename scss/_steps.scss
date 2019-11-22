@@ -19,22 +19,29 @@ ul.steps {
       top: 1.5em;
       left: 0;
       right: 0;
-      border-top: 2px solid #CCC;
+      border-top: 2px solid $hbm-color-steps;
       box-sizing: border-box;
     }
 
     .step-icon {
       display: inline-flex;
-      border: 2px solid #CCC;
-      background-color: #fff;
-      border-radius: 50%;
-      padding: 0.5em;
       position: relative;
     }
 
     .step-text {
       display: block;
       padding: 1em;
+    }
+  }
+
+  &:not(.icon-only) {
+    li.step {
+      .step-icon {
+        border: 2px solid $hbm-color-steps;
+        background-color: #fff;
+        border-radius: 50%;
+        padding: 0.5em;
+      }
     }
   }
 }
