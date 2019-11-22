@@ -26,22 +26,24 @@ ul.steps {
     .step-icon {
       display: inline-flex;
       position: relative;
+
+      border: 2px solid $hbm-color-steps;
+      background-color: #fff;
+      border-radius: 50%;
+      padding: 0.5em;
+    }
+
+    .step-icon-only {
+      display: inline-flex;
     }
 
     .step-text {
       display: block;
       padding: 1em;
     }
-  }
 
-  &:not(.icon-only) {
-    li.step {
-      .step-icon {
-        border: 2px solid $hbm-color-steps;
-        background-color: #fff;
-        border-radius: 50%;
-        padding: 0.5em;
-      }
+    .step-color {
+      color: $hbm-color-steps;
     }
   }
 }
