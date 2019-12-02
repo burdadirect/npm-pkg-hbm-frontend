@@ -23,7 +23,7 @@ var Tasks = function () {
   /* ************************************************************************ */
 
   this.functions['dev_styles_build'] = function (config) {
-    var vendorSrcAbsolute = path.resolve(config.paths.vendor.src)
+    var vendorSrcAbsolute = path.resolve(config.paths.vendor.src);
 
     del(config.paths.styles.output.dir + config.paths.styles.output.file);
 
@@ -52,8 +52,8 @@ var Tasks = function () {
   };
 
   this.functions['prod_styles_build'] = function (config) {
-    var vendorSrcAbsolute = path.resolve(config.paths.vendor.src)
-    
+    var vendorSrcAbsolute = path.resolve(config.paths.vendor.src);
+
     del(config.paths.styles.output.dir + config.paths.styles.output.file);
 
     return gulp.src(filesExist(config.paths.styles.source, {root: config.root}), {base: config.root})
