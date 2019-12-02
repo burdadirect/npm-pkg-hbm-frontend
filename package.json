@@ -27,8 +27,6 @@
     "files-exist": "^1.0",
     "gulp": "^4.0",
     "gulp-concat": "^2.6",
-    "gulp-css-url-adjuster": "^0.2",
-    "gulp-css-url-rebase": "^0.2",
     "gulp-eslint": "^6.0",
     "gulp-notify": "^3.0",
     "gulp-postcss": "^8.0",
@@ -38,6 +36,7 @@
     "gulp-svg-sprite": "^1.5",
     "gulp-uglify": "^3.0",
     "postcss-flexbugs-fixes": "^4.1",
+    "postcss-url": "^8.0.0",
     "require-dir": "^1.2"
   },
   "devDependencies": {},

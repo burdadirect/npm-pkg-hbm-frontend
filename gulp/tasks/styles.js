@@ -4,13 +4,13 @@ var notify = require('gulp-notify');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var postCss = require('gulp-postcss');
+var postCssUrl = require('postcss-url');
 var postCssAutoPrefixer = require('autoprefixer');
 var postCssFlexbugsFixes = require('postcss-flexbugs-fixes');
 var postCssCssNano = require('cssnano');
 var concat = require('gulp-concat');
-var rebaseUrls = require('gulp-css-url-rebase');
-var adjustUrls = require('gulp-css-url-adjuster');
 var filesExist = require('files-exist');
+var path = require('path');
 
 
 var Tasks = function () {
@@ -23,13 +23,11 @@ var Tasks = function () {
   /* ************************************************************************ */
 
   this.functions['dev_styles_build'] = function (config) {
+    var vendorSrcAbsolute = path.resolve(config.paths.vendor.src)
+
     del(config.paths.styles.output.dir + config.paths.styles.output.file);
 
     return gulp.src(filesExist(config.paths.styles.source, {root: config.root}), {base: config.root})
-      .pipe(rebaseUrls())
-      .pipe(adjustUrls({
-        replace: [config.paths.vendor.src, config.paths.vendor.web]
-      }))
       .pipe(sourcemaps.init())
       .pipe(
         sass({
@@ -37,6 +35,13 @@ var Tasks = function () {
           relativeAssets: false
         }).on('error', sass.logError))
       .pipe(postCss([
+        postCssUrl([{
+          url: function(asset, dir, options, decl, warn, result) {
+            if (asset.pathname) {
+              return asset.absolutePath.replace(vendorSrcAbsolute, config.paths.vendor.web);
+            }
+          }
+        }]),
         postCssAutoPrefixer(),
         postCssFlexbugsFixes
       ]))
@@ -47,13 +52,11 @@ var Tasks = function () {
   };
 
   this.functions['prod_styles_build'] = function (config) {
+    var vendorSrcAbsolute = path.resolve(config.paths.vendor.src)
+    
     del(config.paths.styles.output.dir + config.paths.styles.output.file);
 
     return gulp.src(filesExist(config.paths.styles.source, {root: config.root}), {base: config.root})
-      .pipe(rebaseUrls())
-      .pipe(adjustUrls({
-        replace: [config.paths.vendor.src, config.paths.vendor.web]
-      }))
       .pipe(sourcemaps.init())
       .pipe(sass({
         errLogToConsole: true,
@@ -61,6 +64,13 @@ var Tasks = function () {
         relativeAssets: false
       }))
       .pipe(postCss([
+        postCssUrl([{
+          url: function(asset, dir, options, decl, warn, result) {
+            if (asset.pathname) {
+              return asset.absolutePath.replace(vendorSrcAbsolute, config.paths.vendor.web);
+            }
+          }
+        }]),
         postCssAutoPrefixer(),
         postCssFlexbugsFixes,
         postCssCssNano
