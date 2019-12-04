@@ -37,8 +37,13 @@ var Tasks = function () {
       .pipe(postCss([
         postCssUrl([{
           url: function(asset, dir, options, decl, warn, result) {
+            console.log(asset);
             if (asset.pathname) {
-              return asset.absolutePath.replace(vendorSrcAbsolute, config.paths.vendor.web);
+              if (asset.absolutePath.startsWith(vendorSrcAbsolute)) {
+                return asset.absolutePath.replace(vendorSrcAbsolute, config.paths.vendor.web);
+              } else {
+                return asset.url;
+              }
             }
           }
         }]),
@@ -66,8 +71,10 @@ var Tasks = function () {
       .pipe(postCss([
         postCssUrl([{
           url: function(asset, dir, options, decl, warn, result) {
-            if (asset.pathname) {
+            if (asset.absolutePath.startsWith(vendorSrcAbsolute)) {
               return asset.absolutePath.replace(vendorSrcAbsolute, config.paths.vendor.web);
+            } else {
+              return asset.url;
             }
           }
         }]),
