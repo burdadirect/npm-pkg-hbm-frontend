@@ -20,7 +20,7 @@
     "url": "https://github.com/burdanews/npm_pkg_hbm_bn_frontend/issues"
   },
   "dependencies": {
-    "autoprefixer": "^9.7.3",
+    "autoprefixer": "^9.7.4",
     "bootstrap": "^4.4.1",
     "cssnano": "^4.1",
     "del": "^5.1",
