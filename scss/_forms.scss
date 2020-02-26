@@ -2,6 +2,44 @@
 /* FORM                                                                       */
 /******************************************************************************/
 
+.btn-group.input-group-prepend {
+  > .btn {
+    border-radius: 0;
+  }
+}
+
+.btn-group.input-group-prepend:last-child {
+  > .btn:last-child {
+    @include border-right-radius($input-border-radius);
+  }
+}
+
+.btn.btn-input-group-addon {
+  color: $input-group-addon-color;
+  background-color: $input-group-addon-bg;
+  border: $input-border-width solid $input-group-addon-border-color;
+
+  &.focus,
+  &:focus {
+    box-shadow: none;
+  }
+
+  &.active {
+    color: $hbm-color-highlight;
+  }
+}
+
+.btn-group.input-group-prepend.large-icons {
+  .btn.btn-input-group-addon {
+    > .fa,
+    > .svg-inline--fa {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+/******************************************************************************/
+
 .hbm-form-buttons {
   text-align: center;
   margin-top: 1rem;
