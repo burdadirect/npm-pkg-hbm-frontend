@@ -21,6 +21,7 @@ ul.tree {
 
     &:last-child {
       border-left: none;
+      padding-left: calc(1.1em + 1px);
     }
     &:before {
       position: absolute;
@@ -33,6 +34,7 @@ ul.tree {
       content: "";
     }
     &:last-child:before {
+      width: calc(1em + 1px);
       border-left: 1px solid rgb(100,100,100);
     }
   }
