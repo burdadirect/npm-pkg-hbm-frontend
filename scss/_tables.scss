@@ -8,6 +8,9 @@ td,th {
       text-align: center;
       width: #{$hbm-table-cell-width}px;
     }
+    &.fixed-#{$hbm-table-cell-width} {
+      width: #{$hbm-table-cell-width}px;
+    }
   }
 }
 
