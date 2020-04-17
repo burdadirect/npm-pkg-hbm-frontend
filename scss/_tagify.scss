@@ -1,0 +1,58 @@
+/******************************************************************************/
+/* TAGIFY                                                                     */
+/******************************************************************************/
+
+.datagrid-menu-search {
+
+  .form-inline .input-group {
+    align-items: stretch;
+  }
+
+  .input-group > .tagify.form-control {
+    height: auto;
+    border-top-right-radius: $input-border-radius;
+    border-bottom-right-radius: $input-border-radius;
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .tagify--mix .tagify__input,
+  .tagify__input {
+    margin: 0.175rem 0.75rem;
+    padding: 0;
+    display: inline-flex;
+    min-width: 12px;
+    height: auto;
+
+    &:empty {
+      display: inline-flex;
+    }
+
+    &::before {
+      content: '...';
+    }
+  }
+
+  .tagify__tag {
+    margin: 0.175rem 0 0.175rem 0.75rem;
+
+    > div {
+      padding: .1em .5em;
+
+      > .tagify__tag-text {
+        max-width: 160px;
+
+        &[contenteditable="true"] {
+          max-width: none;
+          white-space: normal;
+        }
+      }
+    }
+  }
+
+  .tagify__dropdown {
+    min-width: 220px;
+  }
+
+}
