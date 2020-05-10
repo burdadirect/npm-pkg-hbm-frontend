@@ -2,7 +2,11 @@
 /* MIXINS                                                                     */
 /******************************************************************************/
 
-@mixin reasonable-paragraphs-margins() {
+@mixin reasonable-paragraphs-margins($margin: 1rem) {
+  p {
+    margin-top: $margin;
+    margin-bottom: $margin;
+  }
   p:first-child {
     margin-top: 0;
   }
