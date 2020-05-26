@@ -20,7 +20,8 @@ jQuery.fn.hbm_reload = function (options) {
 
   var settings = jQuery.extend({
     to: 0.3,
-    speed: 500
+    speed: 500,
+    callback: function() {}
   }, options);
 
   this.each(function () {
@@ -31,6 +32,7 @@ jQuery.fn.hbm_reload = function (options) {
       jQuery.get(reload, function (response) {
         $element.html(response);
         $element.fadeTo(settings['speed'], 1.0);
+        settings['callback'] ();
       });
     }
   });
