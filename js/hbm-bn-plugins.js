@@ -83,12 +83,14 @@ jQuery.fn.hbm_initCollapsibleCards = function (options) {
 
     var state = $element.attr('data-card-collapsible');
 
+    var icon = null;
     if (state === 'closed') {
-      var icon = '<i class="card-collapsible-icon ' + settings['iconOpen'] + '"></i>';
-      $element.find('> .card-header').append('<span class="' + settings['btn'] + '" data-card-collapsible-toggle="">' + icon + '</span>');
+      icon = '<i class="card-collapsible-icon ' + settings['iconOpen'] + '"></i>';
     }
     if (state === 'open') {
-      var icon = '<i class="card-collapsible-icon ' + settings['iconClose'] + '"></i>';
+      icon = '<i class="card-collapsible-icon ' + settings['iconClose'] + '"></i>';
+    }
+    if (icon) {
       $element.find('> .card-header').append('<span class="' + settings['btn'] + '" data-card-collapsible-toggle="">' + icon + '</span>');
     }
 
