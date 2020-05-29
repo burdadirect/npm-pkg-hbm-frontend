@@ -79,7 +79,7 @@ jQuery.fn.hbm_initCollapsibleCards = function (options) {
       optionsCustom = JSON.parse(optionsString);
     }
 
-    var settings = jQuery.extend(defaults, optionsCustom);
+    var settings = jQuery.extend({}, defaults, optionsCustom);
 
     var state = $element.attr('data-card-collapsible');
 
