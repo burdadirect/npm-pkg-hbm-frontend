@@ -13,3 +13,11 @@
     padding: $list-group-item-padding-y/2 $list-group-item-padding-x/2;
   }
 }
+
+.card {
+  &[data-card-collapsible="closed"] {
+    > .card-body.card-body-collapsible {
+      display: none;
+    }
+  }
+}

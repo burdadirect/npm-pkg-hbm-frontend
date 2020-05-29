@@ -61,27 +61,42 @@ jQuery.fn.hbm_scrollTo = function (options) {
 };
 
 
-jQuery.fn.hbm_initCollapsibleCards = function () {
+jQuery.fn.hbm_initCollapsibleCards = function (options) {
   'use strict';
+
+  var defaults = jQuery.extend({
+    'btn': 'btn btn-secondary float-right',
+    'iconOpen': 'fa fa-chevron-down',
+    'iconClose': 'fa fa-chevron-up',
+  }, options);
 
   this.each(function () {
     var $element = jQuery(this);
 
-    $element.find('[data-card-collapsible="closed"]').each(function () {
-      var icon = '<i class="fa fa-chevron-down"></i>';
-      jQuery(this).find('> .card-header.hbm-form-header').append('<span class="btn btn-secondary float-right" data-card-collapsible-toggle="">' + icon + '</span>');
-    });
+    var optionsCustom = {};
+    var optionsString = $element.attr('data-card-collapsible-options');
+    if (optionsString) {
+      optionsCustom = JSON.parse(optionsString);
+    }
 
-    $element.find('[data-card-collapsible="open"]').each(function () {
-      var icon = '<i class="fa fa-chevron-up"></i>';
-      jQuery(this).find('> .card-header.hbm-form-header').append('<span class="btn btn-secondary float-right" data-card-collapsible-toggle="">' + icon + '</span>');
-    });
+    var settings = jQuery.extend(defaults, optionsCustom);
+
+    var state = $element.attr('data-card-collapsible');
+
+    if (state === 'closed') {
+      var icon = '<i class="card-collapsible-icon ' + settings['iconOpen'] + '"></i>';
+      $element.find('> .card-header').append('<span class="' + settings['btn'] + '" data-card-collapsible-toggle="">' + icon + '</span>');
+    }
+    if (state === 'open') {
+      var icon = '<i class="card-collapsible-icon ' + settings['iconClose'] + '"></i>';
+      $element.find('> .card-header').append('<span class="' + settings['btn'] + '" data-card-collapsible-toggle="">' + icon + '</span>');
+    }
 
     $element.on('click', '[data-card-collapsible-toggle]', function (event) {
       event.preventDefault();
 
-      jQuery(this).closest('[data-card-collapsible]').find('> .card-body.hbm-form-body.hbm-form-body-collapsible').toggle();
-      jQuery(this).find('.fa-chevron-up,.fa-chevron-down').toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
+      jQuery(this).closest('[data-card-collapsible]').find('> .card-body.card-body-collapsible').toggle();
+      jQuery(this).find('.card-collapsible-icon').toggleClass(settings['iconOpen']).toggleClass(settings['iconClose']);
     });
   });
 
