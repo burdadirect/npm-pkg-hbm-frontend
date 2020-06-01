@@ -65,9 +65,9 @@ jQuery.fn.hbm_initCollapsibleCards = function (options) {
   'use strict';
 
   var defaults = jQuery.extend({
-    'btn': 'btn btn-secondary float-right',
-    'iconOpen': 'fa fa-chevron-down',
-    'iconClose': 'fa fa-chevron-up',
+    btn: 'btn btn-secondary float-right',
+    iconOpen: 'fa fa-chevron-down',
+    iconClose: 'fa fa-chevron-up',
   }, options);
 
   this.each(function () {
