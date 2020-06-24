@@ -84,9 +84,9 @@ window.HBM = (function () {
           ids.push($(this).attr('data-sort-id'));
         });
 
-        var $container = $(this);
-        var url = $container.attr('data-sort');
+        var url = $(this).attr('data-sort');
 
+        var $container = $(this).closest('section');
         var $spinner = $('<i class="fa fa-circle-notch fa-spin" />');
         var $indicator = $container.find('.indicator');
 
