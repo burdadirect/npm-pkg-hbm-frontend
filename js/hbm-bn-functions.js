@@ -62,7 +62,13 @@ window.HBM = (function () {
     });
   };
 
-  module.initSortables = function ($element) {
+  module.initSortables = function ($element, options) {
+    var settings = jQuery.extend({
+      spinner: 'fa fa-circle-notch fa-spin',
+      message: 'Sortierung wurde gespeichert.',
+      callback: function () {}
+    }, options);
+
     $element.find('[data-sort]:not(.ui-sortable)').sortable({
       handle: '[data-sort-handle]',
       items: '[data-sort-id]',
@@ -84,18 +90,19 @@ window.HBM = (function () {
           ids.push($(this).attr('data-sort-id'));
         });
 
-        var url = $(this).attr('data-sort');
+        var $container = $(this);
+        var $spinner = $('<i class="' + settings['spinner'] + '" />');
+        var $indicator = $container.closest('section').find('.indicator');
 
-        var $container = $(this).closest('section');
-        var $spinner = $('<i class="fa fa-circle-notch fa-spin" />');
-        var $indicator = $container.find('.indicator');
+        var url = $container.attr('data-sort');
 
         $container.fadeTo(0, 0.5);
         $indicator.append($spinner);
         $.post(url, {ids: ids}, function (response) {
           $container.fadeTo(0, 1);
           $indicator.empty();
-          module.flashNotification('Sortierung wurde gespeichert.', 'success');
+          module.flashNotification(settings['message'], 'success');
+          settings['callback'](response);
         });
       }
     });
