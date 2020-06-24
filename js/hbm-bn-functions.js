@@ -45,16 +45,20 @@ window.HBM = (function () {
       );
   };
 
-  module.initDateTimePicker = function ($element) {
-    $element.find('input.date-picker').datepicker({
+  module.initDateTimePicker = function ($element, options) {
+    var settings = jQuery.extend({
       yearRange: '-20:+5',
+    }, options);
+
+    $element.find('input.date-picker').datepicker({
+      yearRange: settings['yearRange'],
       dateFormat: 'yy-mm-dd',
       changeYear: true,
       changeMonth: true
     });
 
     $element.find('input.datetime-picker').datetimepicker({
-      yearRange: '-20:+5',
+      yearRange: settings['yearRange'],
       timeFormat: 'HH:mm',
       dateFormat: 'yy-mm-dd',
       changeYear: true,
