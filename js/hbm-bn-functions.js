@@ -46,7 +46,7 @@ window.HBM = (function () {
   };
 
   module.initDateTimePicker = function ($element, options) {
-    var settings = jQuery.extend({
+    var settings = $.extend({
       yearRange: '-20:+5',
     }, options);
 
@@ -67,7 +67,7 @@ window.HBM = (function () {
   };
 
   module.initSortables = function ($element, options) {
-    var settings = jQuery.extend({
+    var settings = $.extend({
       spinner: 'fa fa-circle-notch fa-spin',
       message: 'Sortierung wurde gespeichert.',
       callback: function () {}
