@@ -197,6 +197,14 @@ window.HBM = (function () {
     return false;
   };
 
+  module.escapeHTML = function (s) {
+    return s.replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  };
+
   module.initToggablePasswords = function () {
     $('[type="password"][data-toggable-password]').each(function (item) {
       var $element = $(this);
