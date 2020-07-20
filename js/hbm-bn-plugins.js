@@ -94,7 +94,7 @@ jQuery.fn.hbm_initCollapsibleCards = function (options) {
       $element.find('> .card-header').append('<span class="' + settings['btn'] + '" data-card-collapsible-toggle="">' + icon + '</span>');
     }
 
-    $element.on('click', '[data-card-collapsible-toggle]', function (event) {
+    $element.on('click', '> .card-header [data-card-collapsible-toggle]', function (event) {
       event.preventDefault();
 
       jQuery(this).closest('[data-card-collapsible]').find('> .card-body.card-body-collapsible').toggle();
