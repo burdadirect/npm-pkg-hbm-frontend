@@ -18,6 +18,14 @@
   background-color: $hbm-color-secondary;
 }
 
+.hbm-color-fill-logo {
+  fill: $hbm-color-logo;
+}
+
+.hbm-color-bg-logo {
+  background-color: $hbm-color-logo;
+}
+
 /******************************************************************************/
 
 @each $name, $color in $hbm-colors {
