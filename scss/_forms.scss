@@ -187,8 +187,8 @@
           .input-group-prepend, .input-group-append, .input-group-header {
             .input-group-text {
               border-top: 1px solid #CCCCCC;
-              border-top-left-radius: .25rem;
-              border-top-right-radius: .25rem;
+              border-top-left-radius: $input-border-radius;
+              border-top-right-radius: $input-border-radius;
             }
 
             &:first-child:not(:last-child) {
@@ -207,8 +207,8 @@
         &:last-child {
           .input-group-prepend, .input-group-append, .input-group-header {
             .input-group-text {
-              border-bottom-left-radius: .25rem;
-              border-bottom-right-radius: .25rem;
+              border-bottom-left-radius: $input-border-radius;
+              border-bottom-right-radius: $input-border-radius;
             }
 
             &:first-child:not(:last-child) {
@@ -244,8 +244,8 @@
         &:first-child {
           label {
             border-top: 1px solid #CCCCCC;
-            border-top-left-radius: .25rem;
-            border-top-right-radius: .25rem;
+            border-top-left-radius: $input-border-radius;
+            border-top-right-radius: $input-border-radius;
 
             &:first-child:not(:last-child) {
               border-top-right-radius: 0;
@@ -258,8 +258,8 @@
 
         &:last-child {
           label {
-            border-bottom-left-radius: .25rem;
-            border-bottom-right-radius: .25rem;
+            border-bottom-left-radius: $input-border-radius;
+            border-bottom-right-radius: $input-border-radius;
 
             &:first-child:not(:last-child) {
               border-bottom-right-radius: 0;
