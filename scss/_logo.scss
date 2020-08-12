@@ -1,0 +1,39 @@
+.hbm-logo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  .hbm-logo-icon {
+    width: 4em;
+    display: flex;
+
+    .responsive-svg {
+      flex-grow: 1;
+
+      // Drop shadow if icon parts
+      &:after {
+        content: ' ';
+        position: absolute;
+        width: 100%;
+        height: 5%;
+        top: 100%;
+        left: 0;
+
+        background-image: url(/build/vendor/@burdanews/hbm-bn-frontend/img/logo-shadow.png);
+        background-repeat: no-repeat;
+        background-position: top center;
+        background-size: contain;
+      }
+    }
+  }
+
+  .hbm-logo-text {
+    font-family: $hbm-font-family;
+    font-weight: bold;
+    font-size: 1em;
+    color: $hbm-color-text;
+    text-align: left;
+    margin-left: 0.8em;
+    line-height: 1;
+  }
+}

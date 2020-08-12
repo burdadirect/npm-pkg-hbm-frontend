@@ -49,9 +49,10 @@
     "last 2 versions"
   ],
   "files": [
-    "scss/**/*.scss",
     "gulp/**/*.js",
+    "img/**/*.*",
     "js/**/*.js",
+    "scss/**/*.scss",
     "svg/**/*.svg"
   ]
 }
