@@ -51,6 +51,7 @@
   "files": [
     "scss/**/*.scss",
     "gulp/**/*.js",
-    "js/**/*.js"
+    "js/**/*.js",
+    "svg/**/*.svg"
   ]
 }
