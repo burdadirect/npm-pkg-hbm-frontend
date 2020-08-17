@@ -6,6 +6,7 @@
   .hbm-logo-icon {
     width: 4em;
     display: flex;
+    flex-shrink: 0;
 
     .responsive-svg {
       flex-grow: 1;
@@ -33,7 +34,7 @@
     font-size: 1em;
     color: $hbm-color-text;
     text-align: left;
-    margin-left: 0.8em;
+    margin-left: 0.65em;
     line-height: 1;
   }
 }
