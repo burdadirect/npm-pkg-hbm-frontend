@@ -29,7 +29,7 @@
     "gulp-concat": "^2.6",
     "gulp-eslint": "^6.0",
     "gulp-notify": "^3.0",
-    "gulp-postcss": "^9.0",
+    "gulp-postcss": "^8.0",
     "gulp-print": "^5.0",
     "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^2.6",
