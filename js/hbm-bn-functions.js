@@ -1,11 +1,10 @@
 window.HBM = (function () {
   'use strict';
 
-  // Private
-  var ajaxSecured = true;
-
   // Public
   var module = {};
+
+  module.ajaxSecured = true;
 
   module.flashNotificationFromArray = function (messages) {
     Object.keys(messages).forEach(function (messageIndex) {
@@ -116,7 +115,7 @@ window.HBM = (function () {
     $element.on('click', '[data-ajax-click]', function (event) {
       event.preventDefault();
 
-      if ($(this).get(0).hasAttribute('data-ajax-secured') && ajaxSecured) {
+      if ($(this).get(0).hasAttribute('data-ajax-secured') && module.ajaxSecured) {
         return false;
       }
 
