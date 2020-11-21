@@ -129,6 +129,11 @@ window.HBM = (function () {
           $target.fadeTo(500, 1.0);
         });
 
+        var reloadUrls = $target.hbm_attrJson('data-ajax-reload-propagate') || [];
+        $.each(reloadUrls, function (index, value) {
+          $('[data-ajax-reload-trigger="' + value + '"]').hbm_reload();
+        });
+
       }
       else {
 
