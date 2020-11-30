@@ -127,13 +127,12 @@ window.HBM = (function () {
         $.get($(this).attr('href'), function (response) {
           $target.html(response);
           $target.fadeTo(500, 1.0);
-        });
 
-        var reloadUrls = $target.hbm_attrJson('data-ajax-reload-propagate') || [];
-        $.each(reloadUrls, function (index, value) {
-          $('[data-ajax-reload-trigger="' + value + '"]').hbm_reload();
+          var reloadUrls = $target.hbm_attrJson('data-ajax-reload-propagate') || [];
+          $.each(reloadUrls, function (index, value) {
+            $('[data-ajax-reload-trigger="' + value + '"]').hbm_reload();
+          });
         });
-
       }
       else {
 
