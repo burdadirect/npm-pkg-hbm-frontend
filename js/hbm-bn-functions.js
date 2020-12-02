@@ -119,6 +119,11 @@ window.HBM = (function () {
         return false;
       }
 
+      // Check if there should be a confirm dialog.
+      if ($(this).attr('data-ajax-confirm') && !confirm($(this).attr('data-ajax-confirm'))) {
+        return;
+      }
+
       var context = $(this).attr('data-ajax-click');
       if (context) {
         var $target = $('[data-ajax-target="' + context + '"]');
