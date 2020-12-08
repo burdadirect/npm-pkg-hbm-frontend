@@ -93,20 +93,18 @@
 
       @include reasonable-paragraphs-margins();
     }
-    .card-text {
-      .card-separator {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-        border-top: 1px solid $card-border-color;
-        border-bottom: 1px solid $card-border-color;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-      }
-      .card-divider {
-        padding-bottom: 2rem;
-        border-bottom: 1px solid $card-border-color;
-        margin-bottom: 2rem;
-      }
+    .card-separator {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      border-top: 1px solid $card-border-color;
+      border-bottom: 1px solid $card-border-color;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+    .card-divider {
+      padding-bottom: 2rem;
+      border-bottom: 1px solid $card-border-color;
+      margin-bottom: 2rem;
     }
   }
 }
