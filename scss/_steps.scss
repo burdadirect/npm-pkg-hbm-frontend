@@ -47,3 +47,43 @@ ul.steps {
     }
   }
 }
+
+/******************************************************************************/
+/* SECTIONS                                                                   */
+/******************************************************************************/
+
+ul.sections {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+
+  li.step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+
+    &:not(:last-child) {
+      border-right: $border-width solid $hbm-color-steps;
+    }
+
+    .step-icon {
+      display: inline-flex;
+      position: relative;
+
+      background-color: #fff;
+    }
+
+    .step-icon-only {
+      display: inline-flex;
+    }
+
+    .step-text {
+      display: block;
+    }
+
+    .step-color {
+      color: $hbm-color-steps;
+    }
+  }
+}
