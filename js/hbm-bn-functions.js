@@ -124,19 +124,24 @@ window.HBM = (function () {
         return;
       }
 
+      var method = $(this).attr('data-ajax-method') || 'GET';
+      var href = $(this).attr('href');
+
       var context = $(this).attr('data-ajax-click');
       if (context) {
         var $target = $('[data-ajax-target="' + context + '"]');
         $target.fadeTo(500, 0.3);
 
-        $.get($(this).attr('href'), function (response) {
-          $target.html(response);
-          $target.fadeTo(500, 1.0);
+        $.ajax({type: method, url: href,
+          success: function (response) {
+            $target.html(response);
+            $target.fadeTo(500, 1.0);
 
-          var reloadUrls = $target.hbm_attrJson('data-ajax-reload-propagate') || [];
-          $.each(reloadUrls, function (index, value) {
-            $('[data-ajax-reload-trigger="' + value + '"]').hbm_reload();
-          });
+            var reloadUrls = $target.hbm_attrJson('data-ajax-reload-propagate') || [];
+            $.each(reloadUrls, function (index, value) {
+              $('[data-ajax-reload-trigger="' + value + '"]').hbm_reload();
+            });
+          }
         });
       }
       else {
@@ -144,17 +149,19 @@ window.HBM = (function () {
         var $reload = $(this).closest('[data-ajax-reload]');
         $reload.fadeTo(500, 0.3);
 
-        $.get($(this).attr('href'), function (response) {
-          if (response['success']) {
-            $.get($reload.attr('data-ajax-reload'), function (response) {
-              $reload.html(response);
-              $reload.fadeTo(500, 1.0);
-            });
+        $.ajax({type: method, url: href,
+          success: function (response) {
+            if (response['success']) {
+              $.get($reload.attr('data-ajax-reload'), function (response) {
+                $reload.html(response);
+                $reload.fadeTo(500, 1.0);
+              });
 
-            var reloadUrls = $reload.hbm_attrJson('data-ajax-reload-propagate') || [];
-            $.each(reloadUrls, function (index, value) {
-              $('[data-ajax-reload-trigger="' + value + '"]').hbm_reload();
-            });
+              var reloadUrls = $reload.hbm_attrJson('data-ajax-reload-propagate') || [];
+              $.each(reloadUrls, function (index, value) {
+                $('[data-ajax-reload-trigger="' + value + '"]').hbm_reload();
+              });
+            }
           }
         });
       }
