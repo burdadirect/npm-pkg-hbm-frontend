@@ -1,5 +1,5 @@
 {
-  "name": "@burdanews/hbm-bn-frontend",
+  "name": "@burdadirect/hbm-frontend",
   "version": "1.0.4",
   "description": "Helper styles for HBM BurdaNews projects using bootstrap / fontawesome / jQuery / jQuery UI.",
   "keywords": [
@@ -14,10 +14,10 @@
   "license": "CC-BY-NC-SA-4.0",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/burdanews/npm_pkg_hbm_bn_frontend.git"
+    "url": "git+ssh://git@github.com/burdadirect/npm-pkg-hbm-frontend.git"
   },
   "bugs": {
-    "url": "https://github.com/burdanews/npm_pkg_hbm_bn_frontend/issues"
+    "url": "https://github.com/burdadirect/npm-pkg-hbm-frontend/issues"
   },
   "dependencies": {
     "autoprefixer": "^9.0",
@@ -40,8 +40,8 @@
     "require-dir": "^1.2"
   },
   "devDependencies": {},
-  "main": "gulp/hbm-bn-gulp-tasks.js",
-  "sass": "scss/hbm-bn-styles.scss",
+  "main": "gulp/hbm-gulp-tasks.js",
+  "sass": "scss/hbm-styles.scss",
   "scripts": {
     "gulp": "./node_modules/.bin/gulp"
   },
