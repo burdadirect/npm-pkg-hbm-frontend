@@ -1,7 +1,7 @@
 {
   "name": "@burdadirect/hbm-frontend",
   "version": "1.0.4",
-  "description": "Helper styles for HBM BurdaNews projects using bootstrap / fontawesome / jQuery / jQuery UI.",
+  "description": "Helper styles for HBM projects using bootstrap / fontawesome / jQuery / jQuery UI.",
   "keywords": [
     "css",
     "sass",
