@@ -1,12 +1,12 @@
-# HBM BurdaNews Frontend
+# HBM Frontend
 
-A BurdaNews GmbH project.
+A Burda project.
 
 ## Team
 
 ### Developers
 
-Christian Puchinger - puchinger@playboy.de
+Christian Puchinger - puchinger@burda.com
 
 ## Usage
 
