@@ -54,7 +54,7 @@ jQuery.fn.hbm_scrollTo = function (options) {
   this.each(function () {
     var $element = jQuery(this);
     var offset = $element.eq(0).offset().top;
-    if(settings['relative']) {
+    if (settings['relative']) {
       offset = $element.eq(0).position().top;
     }
 
