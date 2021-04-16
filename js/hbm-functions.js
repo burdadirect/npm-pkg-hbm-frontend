@@ -67,10 +67,15 @@ window.HBM = (function () {
 
   module.initSortables = function ($element, options) {
     var settings = $.extend({
+      force: false,
       spinner: 'fa fa-circle-notch fa-spin',
       message: 'Sortierung wurde gespeichert.',
       callback: function () {}
     }, options);
+
+    if (settings.force) {
+      $element.find('[data-sort]').sortable('destroy');
+    }
 
     $element.find('[data-sort]:not(.ui-sortable)').sortable({
       handle: '[data-sort-handle]',
