@@ -31,7 +31,7 @@
     "gulp-notify": "^4.0",
     "gulp-postcss": "^8.0",
     "gulp-print": "^5.0",
-    "gulp-sass": "^4.1.0",
+    "gulp-sass": "^4.1.1",
     "gulp-sourcemaps": "^3.0",
     "gulp-svg-sprite": "^1.5",
     "gulp-uglify": "^3.0",
