@@ -116,7 +116,7 @@
     margin-top: 1rem;
   }
 
-  label.required:not(.form-control) {
+  label.required:not(.form-control):not(.form-control-handle) {
     &:after {
       content: '*';
     }
