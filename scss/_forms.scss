@@ -243,6 +243,13 @@ label.form-control-handle.hbm-disabled {
           border-bottom: 1px solid #CCCCCC;
           border-radius: 0;
           flex-grow: 1;
+
+          &.form-control-handle {
+            position: relative;
+            flex: 1 1 auto;
+            width: 1%;
+            min-width: 0;
+          }
         }
 
         &:first-child {
