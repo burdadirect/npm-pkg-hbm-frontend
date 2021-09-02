@@ -66,6 +66,12 @@
   }
 }
 
+.hbm-disabled {
+  opacity: 65%;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 .hbm-form-highlight-control {
   textarea, input, select {
     background-color: lighten($hbm-color-secondary, 10%);
@@ -243,13 +249,6 @@
             flex: 1 1 auto;
             width: 1%;
             min-width: 0;
-
-
-            &.hbm-disabled {
-              opacity: 65%;
-              cursor: not-allowed;
-              pointer-events: none;
-            }
           }
         }
 
