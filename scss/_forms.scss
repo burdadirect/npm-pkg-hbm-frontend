@@ -38,6 +38,12 @@
   }
 }
 
+label.form-control-handle.hbm-disabled {
+  opacity: 65%;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 /******************************************************************************/
 
 .hbm-form-buttons {
