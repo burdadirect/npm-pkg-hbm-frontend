@@ -107,6 +107,17 @@
       margin-top: 1rem;
       margin-bottom: 1rem;
     }
+    .card-separator-header {
+      padding: $card-spacer-y $card-spacer-x;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      margin-left: -$card-spacer-x;
+      margin-right: -$card-spacer-x;
+      color: $card-cap-color;
+      background-color: $card-cap-bg;
+      border-top: 1px solid $card-border-color;
+      border-bottom: 1px solid $card-border-color;
+    }
     .card-divider {
       padding-bottom: 2rem;
       border-bottom: 1px solid $card-border-color;
