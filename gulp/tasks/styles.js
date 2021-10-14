@@ -47,7 +47,7 @@ var Tasks = function () {
             }
           }
         }]),
-        postCssAutoPrefixer(),
+        postCssAutoPrefixer,
         postCssFlexbugsFixes
       ]))
       .pipe(concat(config.paths.styles.output.file))
@@ -78,7 +78,7 @@ var Tasks = function () {
             }
           }
         }]),
-        postCssAutoPrefixer(),
+        postCssAutoPrefixer,
         postCssFlexbugsFixes,
         postCssCssNano
       ]))
