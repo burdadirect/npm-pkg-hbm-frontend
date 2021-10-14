@@ -37,7 +37,8 @@
     "gulp-uglify": "^3.0",
     "postcss-flexbugs-fixes": "^4.2.1",
     "postcss-url": "^8.0.0",
-    "require-dir": "^1.2"
+    "require-dir": "^1.2",
+    "sass": "^1.43.2"
   },
   "devDependencies": {},
   "main": "gulp/hbm-gulp-tasks.js",
