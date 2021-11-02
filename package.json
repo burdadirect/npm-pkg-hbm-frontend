@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "autoprefixer": "^10.3.7",
-    "bootstrap": "^4.6.0",
+    "bootstrap": "^4.6.1",
     "cssnano": "^5.0.8",
     "del": "^6.0",
     "files-exist": "^1.0",
