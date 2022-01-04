@@ -1,8 +1,9 @@
-var _ = require('lodash');
-var del = require('del');
-var eslint = require('gulp-eslint');
-var notify = require('gulp-notify');
-var filesExist = require('files-exist');
+const _ = require('lodash');
+const del = require('del');
+const eslint = require('gulp-eslint');
+const notify = require('gulp-notify');
+const filesExist = require('files-exist');
+const zip = require('gulp-zip');
 
 
 module.exports = {
@@ -36,6 +37,14 @@ module.exports = {
             _.each(configValue.paths.copy, function (copy) {
               gulp.src(filesExist(copy.source, {root: copy.base}), {base: copy.base})
                 .pipe(gulp.dest(config.paths.vendor.dest));
+            });
+          }
+
+          if ('zip' in configValue.paths) {
+            _.each(configValue.paths.zip, function (zipData) {
+              gulp.src(filesExist(zipData.source, {root: zipData.base}), {base: zipData.base})
+                .pipe(zip(zipData.output.file))
+                .pipe(gulp.dest(zipData.output.dir ?? config.paths.vendor.dest));
             });
           }
         });
