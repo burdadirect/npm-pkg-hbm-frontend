@@ -97,7 +97,7 @@
       border-bottom: 1px solid $card-border-color;
       margin-bottom: 1rem;
 
-      @include reasonable-paragraphs-margins();
+      @include reasonable-paragraphs-margins($hbm-resonable-paragraphs-margin);
     }
     .card-separator {
       padding-top: 1rem;

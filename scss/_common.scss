@@ -26,5 +26,5 @@ code.pre {
 }
 
 .reasonable-paragraph-margins {
-  @include reasonable-paragraphs-margins();
+  @include reasonable-paragraphs-margins($hbm-resonable-paragraphs-margin);
 }
