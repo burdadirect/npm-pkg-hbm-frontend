@@ -241,6 +241,62 @@ window.HBM = (function () {
     });
   };
 
+  module.initStrlenCounter = function (options) {
+    let optionsDefault = {
+      'min-class': 'alert-danger',
+      'max-class': 'alert-danger'
+    };
+
+    let optionsToUse = {...optionsDefault, ...(options || {})};
+
+    $('[type="text"][data-strlen-counter]').each(function () {
+      let $element = $(this);
+
+      // Handle options.
+      let settings = optionsToUse;
+      try {
+        settings = {...settings, ...JSON.parse($element.attr('data-strlen-counter'))};
+      } catch(e) {
+      }
+
+      let textParts = [];
+      if ('min' in settings) {
+        textParts.push('min: ' + settings['min']);
+      }
+      if ('max' in settings) {
+        textParts.push('max: ' + settings['max']);
+      }
+
+      let textPostfix = '';
+      if (textParts.length > 0) {
+        textPostfix = ' (' + textParts.join(', ') + ')';
+      }
+
+      // Prepare content.
+      let $counter = $('<span class="input-group-text">n/a</span>');
+      let $handle = $('<span class="input-group-append" title="Anzahl Zeichen' + textPostfix + '"></span>');
+
+      $handle.append($counter);
+      $element.closest('.input-group').find('.input-group-append').before($handle);
+
+      // Handle event.
+      $element.on('input', function () {
+        let strlen = $element.val().length;
+
+        if (('min' in settings) && (strlen < settings['min'])) {
+          $counter.addClass(settings['min-class']);
+        } else if (('max' in settings) && (strlen > settings['max'])) {
+          $counter.addClass(settings['max-class']);
+        } else {
+          $counter.removeClass(settings['min-class']).removeClass(settings['max-class']);
+        }
+
+        $counter.text(strlen + ' Zeichen');
+      });
+      $element.trigger('input');
+    });
+  };
+
   return module;
 
 })();
