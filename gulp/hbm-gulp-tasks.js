@@ -45,6 +45,11 @@ module.exports = {
               gulp.src(filesExist(zipData.source, {root: zipData.base}), {base: zipData.base})
                 .pipe(zip(zipData.output.file))
                 .pipe(gulp.dest(zipData.output.dir ?? config.paths.vendor.dest));
+
+              if (zipData.copy) {
+                gulp.src(filesExist(zipData.source, {root: zipData.base}), {base: zipData.base})
+                  .pipe(gulp.dest(zipData.output.dir ?? config.paths.vendor.dest));
+              }
             });
           }
         });
