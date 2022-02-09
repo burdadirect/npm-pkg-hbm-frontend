@@ -6,6 +6,19 @@ window.HBM = (function () {
 
   module.ajaxSecured = true;
 
+  module.logPrefixEntry = 'HBM';
+  module.logPrefixGroup = null;
+
+  module.log = function (data) {
+    if (module.logPrefixGroup) {
+      console.group(module.logPrefixGroup);
+    }
+    console.log(module.logPrefixEntry + ': %o', data);
+    if (module.logPrefixGroup) {
+      console.groupEnd();
+    }
+  }
+
   module.flashNotificationFromArray = function (messages) {
     Object.keys(messages).forEach(function (messageIndex) {
       var text = messages[messageIndex]['text'] || null;
