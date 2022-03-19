@@ -142,24 +142,35 @@ window.HBM = (function () {
         return;
       }
 
-      var method = $(this).attr('data-ajax-method') || 'GET';
       var href = $(this).attr('href');
-
+      var method = $(this).attr('data-ajax-method') || 'GET';
       var context = $(this).attr('data-ajax-click');
+      var reset = $(this).get(0).hasAttribute('data-ajax-reset');
+      var messages = $(this).attr('data-ajax-messages') | false;
+
       if (context) {
         var $target = $('[data-ajax-target="' + context + '"]');
         $target.fadeTo(500, 0.3);
 
-        $.ajax({type: method, url: href,
-          success: function (response) {
-            $target.html(response);
-            $target.fadeTo(500, 1.0);
+        let jqxhr = $.ajax({type: method, url: href});
 
-            var reloadUrls = $target.hbm_attrJson('data-ajax-reload-propagate') || [];
-            $.each(reloadUrls, function (index, value) {
-              $('[data-ajax-reload-trigger="' + value + '"]').hbm_reload();
-            });
+        jqxhr.done(function (response) {
+          $target.html(response);
+          $target.fadeTo(500, 1.0);
+
+          var reloadUrls = $target.hbm_attrJson('data-ajax-reload-propagate') || [];
+          $.each(reloadUrls, function (index, value) {
+            $('[data-ajax-reload-trigger="' + value + '"]').hbm_reload();
+          });
+
+          module.flashNotificationsFromResponse(response, messages);
+        });
+
+        jqxhr.fail(function (data) {
+          if (reset) {
+            $target.fadeTo(500, 1.0);
           }
+          module.flashNotificationsFromResponse(data.responseJSON, messages);
         });
       }
       else {
@@ -167,20 +178,29 @@ window.HBM = (function () {
         var $reload = $(this).closest('[data-ajax-reload]');
         $reload.fadeTo(500, 0.3);
 
-        $.ajax({type: method, url: href,
-          success: function (response) {
-            if (response['success']) {
-              $.get($reload.attr('data-ajax-reload'), function (response) {
-                $reload.html(response);
-                $reload.fadeTo(500, 1.0);
-              });
+        let jqxhr = $.ajax({type: method, url: href});
 
-              var reloadUrls = $reload.hbm_attrJson('data-ajax-reload-propagate') || [];
-              $.each(reloadUrls, function (index, value) {
-                $('[data-ajax-reload-trigger="' + value + '"]').hbm_reload();
-              });
-            }
+        jqxhr.done(function (response) {
+          if (response['success']) {
+            $.get($reload.attr('data-ajax-reload'), function (responseReload) {
+              $reload.html(responseReload);
+              $reload.fadeTo(500, 1.0);
+            });
+
+            var reloadUrls = $reload.hbm_attrJson('data-ajax-reload-propagate') || [];
+            $.each(reloadUrls, function (index, value) {
+              $('[data-ajax-reload-trigger="' + value + '"]').hbm_reload();
+            });
           }
+
+          module.flashNotificationsFromResponse(response, messages);
+        });
+
+        jqxhr.fail(function (data) {
+          if (reset) {
+            $reload.fadeTo(500, 1.0);
+          }
+          module.flashNotificationsFromResponse(data.responseJSON, messages);
         });
       }
     });
@@ -209,13 +229,23 @@ window.HBM = (function () {
         else {
           element.addClass('loading-bg-error');
         }
-        if (response['notifications']) {
-          $.each(response['notifications'], function (key, value) {
-            module.flashNotification(value);
-          });
-        }
+
+        module.flashNotificationsFromResponse(response);
       });
     });
+  };
+
+  module.flashNotificationsFromResponse = function (response, seconds) {
+    if (response['messages']) {
+      $.each(response['messages'], function (key, value) {
+        if (typeof value === 'object') {
+          module.flashNotification(value['text'], value['alert'] || value['level'], seconds);
+        }
+        else {
+          module.flashNotification(value, null, seconds);
+        }
+      });
+    }
   };
 
   module.eventContainsFiles = function (event) {
