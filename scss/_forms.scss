@@ -38,6 +38,26 @@
   }
 }
 
+@mixin input-group-item-variant($variant, $background, $color) {
+  .input-group-#{$variant} {
+    color: $color;
+    background-color: $background;
+
+    .input-group-text {
+      background-color: darken($background, 15%);
+    }
+  }
+
+  .hbm-form-group .hbm-form-controls .hbm-form-input-groups .input-group.input-group-#{$variant} label {
+    background-color: transparent;
+  }
+}
+
+@each $color, $value in $theme-colors {
+  @include input-group-item-variant($color, theme-color-level($color, -9), theme-color-level($color, 6));
+}
+
+
 /******************************************************************************/
 
 .hbm-form-buttons {
