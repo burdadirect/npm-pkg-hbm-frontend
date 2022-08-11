@@ -18,10 +18,20 @@
   }
 }
 
+.list-group-narrow-extra {
+  .list-group-item {
+    padding: 0.1rem 0.3rem
+  }
+}
+
 .padded-like-list-group {
   padding: $list-group-item-padding-y $list-group-item-padding-x;
 }
 
 .padded-like-list-group-narrow {
   padding: 0.3rem 0.6rem;
+}
+
+.padded-like-list-group-narrow-extra {
+  padding: 0.1rem 0.3rem;
 }
