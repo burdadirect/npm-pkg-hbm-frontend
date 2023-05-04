@@ -47,19 +47,26 @@ jQuery.fn.hbm_scrollTo = function (options) {
   var settings = jQuery.extend({
     duration: 1000,
     offset: 0,
+    withoutMargin: true,
     container: 'html,body',
     relative: false
   }, options);
 
   this.each(function () {
     var $element = jQuery(this);
+
     var offset = $element.eq(0).offset().top;
     if (settings['relative']) {
       offset = $element.eq(0).position().top;
     }
 
+    var marginCorrection = 0;
+    if (settings['withoutMargin']) {
+      marginCorrection = parseInt($element.eq(0).css('margin-top'));
+    }
+
     jQuery(settings['container']).animate({
-      scrollTop: offset + settings['offset']
+      scrollTop: offset - marginCorrection + settings['offset']
     }, settings['duration']);
   });
 
