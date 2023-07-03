@@ -62,19 +62,27 @@ window.HBM = (function () {
       yearRange: '-20:+5',
     }, options);
 
-    $element.find('input.date-picker').datepicker({
-      yearRange: settings['yearRange'],
-      dateFormat: 'yy-mm-dd',
-      changeYear: true,
-      changeMonth: true
+    $element.find('input.date-picker').each(function() {
+      let customOptions = module.parseJson($(this).attr('data-options-picker'), {}, 'object');
+
+      $(this).datepicker($.extend({
+        yearRange: settings['yearRange'],
+        dateFormat: 'yy-mm-dd',
+        changeYear: true,
+        changeMonth: true
+      }, customOptions));
     });
 
-    $element.find('input.datetime-picker').datetimepicker({
-      yearRange: settings['yearRange'],
-      timeFormat: 'HH:mm',
-      dateFormat: 'yy-mm-dd',
-      changeYear: true,
-      changeMonth: true
+    $element.find('input.datetime-picker').each(function(item) {
+      let customOptions = module.parseJson($(this).attr('data-options-picker'), {}, 'object');
+
+      $(this).datetimepicker($.extend({
+        yearRange: settings['yearRange'],
+        timeFormat: 'HH:mm',
+        dateFormat: 'yy-mm-dd',
+        changeYear: true,
+        changeMonth: true,
+      }, customOptions));
     });
   };
 
@@ -267,6 +275,20 @@ window.HBM = (function () {
       .replace(/"/g, "&quot;")
       .replace(/'/g, "&#039;");
   };
+
+  module.parseJson = function (data, fallback = {}, type = null) {
+    try {
+      const parsedData = JSON.parse(data);
+      if (type && (typeof parsedData !== type)) {
+        return fallback;
+      }
+      return parsedData;
+    } catch(e) {
+      module.log('Parsing JSON failed: ' + data);
+    }
+
+    return fallback;
+  }
 
   module.initToggablePasswords = function () {
     $('[type="password"][data-toggable-password]').each(function (item) {
