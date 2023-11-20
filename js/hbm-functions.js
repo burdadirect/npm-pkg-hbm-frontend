@@ -60,6 +60,8 @@ window.HBM = (function () {
   module.initDateTimePicker = function ($element, options) {
     var settings = $.extend({
       yearRange: '-20:+5',
+      hour: 0,
+      minute: 0,
     }, options);
 
     $element.find('input.date-picker').each(function() {
@@ -82,6 +84,8 @@ window.HBM = (function () {
         dateFormat: 'yy-mm-dd',
         changeYear: true,
         changeMonth: true,
+        hour: settings['hour'],
+        minute: settings['minute'],
       }, customOptions));
     });
   };
