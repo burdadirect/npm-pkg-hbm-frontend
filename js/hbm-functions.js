@@ -65,9 +65,10 @@ window.HBM = (function () {
     }, options);
 
     $element.find('input.date-picker').each(function() {
-      let customOptions = module.parseJson($(this).attr('data-options-picker'), {}, 'object');
-      if ($(this).hasAttribute('data-options-picker')) {
-        customOptions = module.parseJson($(this).attr('data-options-picker'), {}, 'object');
+      let customOptions = {};
+      let customOptionsJson = $(this).attr('data-options-picker');
+      if (customOptionsJson !== undefined) {
+        customOptions = module.parseJson(customOptionsJson, {}, 'object');
       }
 
       $(this).datepicker($.extend({
@@ -80,8 +81,9 @@ window.HBM = (function () {
 
     $element.find('input.datetime-picker').each(function(item) {
       let customOptions = {};
-      if ($(this).hasAttribute('data-options-picker')) {
-        customOptions = module.parseJson($(this).attr('data-options-picker'), {}, 'object');
+      let customOptionsJson = $(this).attr('data-options-picker');
+      if (customOptionsJson !== undefined) {
+        customOptions = module.parseJson(customOptionsJson, {}, 'object');
       }
 
       $(this).datetimepicker($.extend({
