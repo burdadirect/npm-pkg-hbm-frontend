@@ -17,7 +17,7 @@ window.HBM = (function () {
     if (module.logPrefixGroup) {
       console.groupEnd();
     }
-  }
+  };
 
   module.flashNotificationFromArray = function (messages) {
     Object.keys(messages).forEach(function (messageIndex) {
@@ -300,12 +300,33 @@ window.HBM = (function () {
     }
 
     return fallback;
-  }
+  };
+
+  module.formatString = function (format, replacements) {
+    return format.replace(
+      /{(\w+)}/g,
+      function (placeholderWithDelimiters, placeholderWithoutDelimiters) {
+        return Object.hasOwn(replacements, placeholderWithoutDelimiters) ?
+          replacements[placeholderWithoutDelimiters] : placeholderWithDelimiters;
+      }
+    );
+  };
 
   module.initToggablePasswords = function () {
-    $('[type="password"][data-toggable-password]').each(function (item) {
-      var $element = $(this);
-      var $handle = $('<span class="input-group-append" style="cursor:pointer;" title="Passwort ein-/ausblenden"><span class="input-group-text"><i class="fa fa-fw fa-eye-slash"></i></span></span>');
+    $('[type="password"][data-toggable-password]').each(function () {
+      let $element = $(this);
+
+      let settings = {
+        'template-title': 'Passwort ein-/ausblenden'
+      };
+      try {
+        settings = {...settings, ...JSON.parse($element.attr('data-toggable-password'))};
+      }
+      catch(e) {
+        module.log('initToggablePasswords: options can not be parsed.');
+      }
+
+      let $handle = $('<span class="input-group-append" style="cursor:pointer;" title="' + settings['template-title'] + '"><span class="input-group-text"><i class="fa fa-fw fa-eye-slash"></i></span></span>');
 
       $element.closest('.input-group').find('.input-group-append').before($handle);
 
@@ -321,7 +342,12 @@ window.HBM = (function () {
   module.initStrlenCounter = function (options) {
     let optionsDefault = {
       'min-class': 'alert-danger',
-      'max-class': 'alert-danger'
+      'max-class': 'alert-danger',
+      'template-min': 'min: {min}',
+      'template-max': 'max: {max}',
+      'template-limits': ' ({minAndOrMax})',
+      'template-title': 'Anzahl Zeichen{limits}',
+      'template-text': '{num} Zeichen'
     };
 
     let optionsToUse = {...optionsDefault, ...(options || {})};
@@ -333,25 +359,27 @@ window.HBM = (function () {
       let settings = optionsToUse;
       try {
         settings = {...settings, ...JSON.parse($element.attr('data-strlen-counter'))};
-      } catch(e) {
+      }
+      catch(e) {
+        module.log('initStrlenCounter: options can not be parsed.');
       }
 
-      let textParts = [];
+      let limitParts = [];
       if ('min' in settings) {
-        textParts.push('min: ' + settings['min']);
+        limitParts.push(module.formatString(settings['template-min'], settings));
       }
       if ('max' in settings) {
-        textParts.push('max: ' + settings['max']);
+        limitParts.push(module.formatString(settings['template-max'], settings));
       }
 
-      let textPostfix = '';
-      if (textParts.length > 0) {
-        textPostfix = ' (' + textParts.join(', ') + ')';
+      let limitText = '';
+      if (limitParts.length > 0) {
+        limitText = module.formatString(settings['template-limits'], {minAndOrMax: limitParts.join(', ')});
       }
 
       // Prepare content.
       let $counter = $('<span class="input-group-text">n/a</span>');
-      let $handle = $('<span class="input-group-append" title="Anzahl Zeichen' + textPostfix + '"></span>');
+      let $handle = $('<span class="input-group-append" title="' + module.formatString(settings['template-title'], {limits: limitText}) + '"></span>');
 
       $handle.append($counter);
       $element.closest('.input-group').find('.input-group-append').before($handle);
@@ -362,13 +390,15 @@ window.HBM = (function () {
 
         if (('min' in settings) && (strlen < settings['min'])) {
           $counter.addClass(settings['min-class']);
-        } else if (('max' in settings) && (strlen > settings['max'])) {
+        }
+        else if (('max' in settings) && (strlen > settings['max'])) {
           $counter.addClass(settings['max-class']);
-        } else {
+        }
+        else {
           $counter.removeClass(settings['min-class']).removeClass(settings['max-class']);
         }
 
-        $counter.text(strlen + ' Zeichen');
+        $counter.text(module.formatString(settings['template-text'], {num: strlen}));
       });
       $element.trigger('input');
     });
