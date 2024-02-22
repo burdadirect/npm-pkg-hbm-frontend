@@ -288,6 +288,12 @@ window.HBM = (function () {
       .replace(/'/g, "&#039;");
   };
 
+  module.blobToDataUrl = function (blob, callback) {
+    const a = new FileReader();
+    a.onload = function(e) {callback(e.target.result);}
+    a.readAsDataURL(blob);
+  };
+
   module.parseJson = function (data, fallback = {}, type = null) {
     try {
       const parsedData = JSON.parse(data);
