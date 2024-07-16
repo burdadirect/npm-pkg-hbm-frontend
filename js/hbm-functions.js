@@ -281,6 +281,10 @@ window.HBM = (function () {
   };
 
   module.escapeHTML = function (s) {
+    if (typeof s === 'undefined') {
+      return '';
+    }
+
     return s.replace(/&/g, "&amp;")
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;")
