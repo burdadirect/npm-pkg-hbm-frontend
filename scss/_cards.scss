@@ -14,7 +14,8 @@
   }
 }
 
-.card {
+.card,
+.card-collapsible {
   &[data-card-collapsible="closed"] {
     > .card-body.card-body-collapsible {
       display: none;
