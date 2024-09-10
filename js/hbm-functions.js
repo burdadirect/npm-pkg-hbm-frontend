@@ -167,16 +167,25 @@ window.HBM = (function () {
       var context = $(this).attr('data-ajax-click');
       var reset = $(this).get(0).hasAttribute('data-ajax-reset');
       var messages = $(this).attr('data-ajax-messages') | false;
+      var classDefault = 'hbm-ajax-transition';
+      var classBusy = 'hbm-ajax-busy';
+      var ajax = {type: method, url: href};
+      if ($(this).get(0).hasAttribute('data-ajax-data')) {
+        ajax.data = module.parseJson($(this).attr('data-ajax-data'), null, 'object');
+      }
 
       if (context) {
         var $target = $('[data-ajax-target="' + context + '"]');
-        $target.fadeTo(500, 0.3);
 
-        let jqxhr = $.ajax({type: method, url: href});
+        classBusy = $target.attr('data-ajax-busy') || classBusy;
+        $target.addClass(classDefault);
+        $target.addClass(classBusy);
+
+        let jqxhr = $.ajax(ajax);
 
         jqxhr.done(function (response) {
           $target.html(response);
-          $target.fadeTo(500, 1.0);
+          $target.removeClass(classBusy);
 
           var reloadUrls = $target.hbm_attrJson('data-ajax-reload-propagate') || [];
           $.each(reloadUrls, function (index, value) {
@@ -188,7 +197,7 @@ window.HBM = (function () {
 
         jqxhr.fail(function (data) {
           if (reset) {
-            $target.fadeTo(500, 1.0);
+            $target.removeClass(classBusy);
           }
           module.flashNotificationsFromResponse(data.responseJSON, messages);
         });
@@ -196,15 +205,18 @@ window.HBM = (function () {
       else {
 
         var $reload = $(this).closest('[data-ajax-reload]');
-        $reload.fadeTo(500, 0.3);
+        classBusy = $reload.attr('data-ajax-busy') || classBusy;
 
-        let jqxhr = $.ajax({type: method, url: href});
+        $reload.addClass(classDefault);
+        $reload.addClass(classBusy);
+
+        let jqxhr = $.ajax(ajax);
 
         jqxhr.done(function (response) {
           if (response['success']) {
             $.get($reload.attr('data-ajax-reload'), function (responseReload) {
               $reload.html(responseReload);
-              $reload.fadeTo(500, 1.0);
+              $reload.removeClass(classBusy);
             });
 
             var reloadUrls = $reload.hbm_attrJson('data-ajax-reload-propagate') || [];
@@ -218,7 +230,7 @@ window.HBM = (function () {
 
         jqxhr.fail(function (data) {
           if (reset) {
-            $reload.fadeTo(500, 1.0);
+            $reload.removeClass(classBusy);
           }
           module.flashNotificationsFromResponse(data.responseJSON, messages);
         });

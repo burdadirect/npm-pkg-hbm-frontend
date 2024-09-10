@@ -1,0 +1,16 @@
+/******************************************************************************/
+/* AJAX                                                                     */
+/******************************************************************************/
+
+.hbm-ajax-transition {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.hbm-ajax-busy {
+  opacity: 0.3;
+}
+
+.hbm-ajax-busy-disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
