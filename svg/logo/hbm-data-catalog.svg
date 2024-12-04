@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 307 307" style="enable-background:new 0 0 307 307;" xml:space="preserve">
 
-	<rect fill="#000000" width="307" height="307"/>
-	<g fill="#000001">
-		<path d="M448 73.1v45.7C448 159.1 347.7 192 224 192S0 159.1 0 118.9V73.1C0 32.9 100.3 0 224 0s224 32.9 224 73.1zM448 176v102.9C448 319.1 347.7 352 224 352S0 319.1 0 278.9V176c48.1 33.1 136.2 48.6 224 48.6S399.9 209.1 448 176zm0 160v102.9C448 479.1 347.7 512 224 512S0 479.1 0 438.9V336c48.1 33.1 136.2 48.6 224 48.6S399.9 369.1 448 336z"/>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 307 307" style="enable-background:new 0 0 307 307;" xml:space="preserve">
+
+	<rect fill="#000000" width="307" height="307" />
+	<g fill="#000001" transform="matrix(0.41478125,0,0,0.41478125,60.589,47.316)">
+		<path d="m 448,73.1 v 45.7 C 448,159.1 347.7,192 224,192 100.3,192 0,159.1 0,118.9 V 73.1 C 0,32.9 100.3,0 224,0 347.7,0 448,32.9 448,73.1 Z M 448,176 V 278.9 C 448,319.1 347.7,352 224,352 100.3,352 0,319.1 0,278.9 V 176 c 48.1,33.1 136.2,48.6 224,48.6 87.8,0 175.9,-15.5 224,-48.6 z m 0,160 V 438.9 C 448,479.1 347.7,512 224,512 100.3,512 0,479.1 0,438.9 V 336 c 48.1,33.1 136.2,48.6 224,48.6 87.8,0 175.9,-15.5 224,-48.6 z" />
 	</g>
 </svg>
