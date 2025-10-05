@@ -38,11 +38,11 @@ var Tasks = function () {
 
   this.functions['dev_scripts_build'] = function (config) {
     if (typeof config.paths.scripts.output.maps === 'undefined') {
-      config.paths.scripts.output.maps = config.paths.scripts.output.dir + 'maps/';
+      config.paths.scripts.output.maps = './maps/';
     }
 
     del(config.paths.scripts.output.dir + config.paths.scripts.output.file);
-    del(config.paths.scripts.output.maps + config.paths.scripts.output.file + '.map');
+    del(config.paths.scripts.output.dir + config.paths.scripts.output.maps + config.paths.scripts.output.file + '.map');
 
     return gulp.src(filesExist(config.paths.scripts.source, {root: config.root}), {base: config.root})
       .pipe(sourcemaps.init())
@@ -54,11 +54,11 @@ var Tasks = function () {
 
   this.functions['prod_scripts_build'] = function (config) {
     if (typeof config.paths.scripts.output.maps === 'undefined') {
-      config.paths.scripts.output.maps = config.paths.scripts.output.dir + 'maps/';
+      config.paths.scripts.output.maps = './maps/';
     }
 
     del(config.paths.scripts.output.dir + config.paths.scripts.output.file);
-    del(config.paths.scripts.output.maps + config.paths.scripts.output.file + '.map');
+    del(config.paths.scripts.output.dir + config.paths.scripts.output.maps + config.paths.scripts.output.file + '.map');
 
     return gulp.src(filesExist(config.paths.scripts.source, {root: config.root}), {base: config.root})
       .pipe(sourcemaps.init())

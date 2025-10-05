@@ -26,11 +26,11 @@ var Tasks = function () {
     var vendorSrcAbsolute = path.resolve(config.paths.vendor.src);
 
     if (typeof config.paths.styles.output.maps === 'undefined') {
-      config.paths.styles.output.maps = config.paths.styles.output.dir + 'maps/';
+      config.paths.styles.output.maps = './maps/';
     }
 
     del(config.paths.styles.output.dir + config.paths.styles.output.file);
-    del(config.paths.styles.output.maps + config.paths.styles.output.file + '.map');
+    del(config.paths.styles.output.dir + config.paths.styles.output.maps + config.paths.styles.output.file + '.map');
 
     return gulp.src(filesExist(config.paths.styles.source, {root: config.root}), {base: config.root})
       .pipe(sourcemaps.init())
@@ -65,11 +65,11 @@ var Tasks = function () {
     var vendorSrcAbsolute = path.resolve(config.paths.vendor.src);
 
     if (typeof config.paths.styles.output.maps === 'undefined') {
-      config.paths.styles.output.maps = config.paths.styles.output.dir + 'maps/';
+      config.paths.styles.output.maps = './maps/';
     }
 
     del(config.paths.styles.output.dir + config.paths.styles.output.file);
-    del(config.paths.styles.output.maps + config.paths.styles.output.file + '.map');
+    del(config.paths.styles.output.dir + config.paths.styles.output.maps + config.paths.styles.output.file + '.map');
 
     return gulp.src(filesExist(config.paths.styles.source, {root: config.root}), {base: config.root})
       .pipe(sourcemaps.init())
