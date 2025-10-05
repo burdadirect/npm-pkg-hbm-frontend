@@ -37,26 +37,34 @@ var Tasks = function () {
   /* ************************************************************************ */
 
   this.functions['dev_scripts_build'] = function (config) {
+    if (typeof config.paths.scripts.output.maps === 'undefined') {
+      config.paths.scripts.output.maps = config.paths.scripts.output.dir + 'maps/';
+    }
+
     del(config.paths.scripts.output.dir + config.paths.scripts.output.file);
-    del(config.paths.scripts.output.dir + 'maps/' + config.paths.scripts.output.file + '.map');
+    del(config.paths.scripts.output.maps + config.paths.scripts.output.file + '.map');
 
     return gulp.src(filesExist(config.paths.scripts.source, {root: config.root}), {base: config.root})
       .pipe(sourcemaps.init())
       .pipe(concat(config.paths.scripts.output.file))
-      .pipe(sourcemaps.write('./maps'))
+      .pipe(sourcemaps.write(config.paths.scripts.output.maps))
       .pipe(gulp.dest(config.paths.scripts.output.dir))
       .pipe(notify(config.paths.scripts.output.dir + config.paths.scripts.output.file + ' compiled!'));
   };
 
   this.functions['prod_scripts_build'] = function (config) {
+    if (typeof config.paths.scripts.output.maps === 'undefined') {
+      config.paths.scripts.output.maps = config.paths.scripts.output.dir + 'maps/';
+    }
+
     del(config.paths.scripts.output.dir + config.paths.scripts.output.file);
-    del(config.paths.scripts.output.dir + 'maps/' + config.paths.scripts.output.file + '.map');
+    del(config.paths.scripts.output.maps + config.paths.scripts.output.file + '.map');
 
     return gulp.src(filesExist(config.paths.scripts.source, {root: config.root}), {base: config.root})
       .pipe(sourcemaps.init())
       .pipe(concat(config.paths.scripts.output.file))
       .pipe(uglify())
-      .pipe(sourcemaps.write('./maps'))
+      .pipe(sourcemaps.write(config.paths.scripts.output.maps))
       .pipe(gulp.dest(config.paths.scripts.output.dir));
   };
 

@@ -25,7 +25,12 @@ var Tasks = function () {
   this.functions['dev_styles_build'] = function (config) {
     var vendorSrcAbsolute = path.resolve(config.paths.vendor.src);
 
+    if (typeof config.paths.styles.output.maps === 'undefined') {
+      config.paths.styles.output.maps = config.paths.styles.output.dir + 'maps/';
+    }
+
     del(config.paths.styles.output.dir + config.paths.styles.output.file);
+    del(config.paths.styles.output.maps + config.paths.styles.output.file + '.map');
 
     return gulp.src(filesExist(config.paths.styles.source, {root: config.root}), {base: config.root})
       .pipe(sourcemaps.init())
@@ -51,7 +56,7 @@ var Tasks = function () {
         postCssFlexbugsFixes
       ]))
       .pipe(concat(config.paths.styles.output.file))
-      .pipe(sourcemaps.write('./maps'))
+      .pipe(sourcemaps.write(config.paths.styles.output.maps))
       .pipe(gulp.dest(config.paths.styles.output.dir))
       .pipe(notify(config.paths.styles.output.dir + config.paths.styles.output.file + ' compiled!'));
   };
@@ -59,7 +64,12 @@ var Tasks = function () {
   this.functions['prod_styles_build'] = function (config) {
     var vendorSrcAbsolute = path.resolve(config.paths.vendor.src);
 
+    if (typeof config.paths.styles.output.maps === 'undefined') {
+      config.paths.styles.output.maps = config.paths.styles.output.dir + 'maps/';
+    }
+
     del(config.paths.styles.output.dir + config.paths.styles.output.file);
+    del(config.paths.styles.output.maps + config.paths.styles.output.file + '.map');
 
     return gulp.src(filesExist(config.paths.styles.source, {root: config.root}), {base: config.root})
       .pipe(sourcemaps.init())
@@ -83,7 +93,7 @@ var Tasks = function () {
         postCssCssNano
       ]))
       .pipe(concat(config.paths.styles.output.file))
-      .pipe(sourcemaps.write('./maps'))
+      .pipe(sourcemaps.write(config.paths.styles.output.maps))
       .pipe(gulp.dest(config.paths.styles.output.dir));
   };
 
