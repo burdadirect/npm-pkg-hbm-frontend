@@ -104,7 +104,11 @@ jQuery.fn.hbm_initCollapsibleCards = function (options) {
       icon = '<i class="card-collapsible-icon ' + settings['iconClose'] + '"></i>';
     }
     if (icon) {
-      $element.find('> .card-header').append('<span class="' + settings['btn'] + '" data-card-collapsible-toggle="">' + icon + '</span>');
+      var $header = $element.find('> .card-header.card-header-collapsible-toggle');
+      if ($header.length === 0) {
+        $header = $element.find('> .card-header');
+      }
+      $header.append('<span class="' + settings['btn'] + '" data-card-collapsible-toggle="">' + icon + '</span>');
     }
 
     $element.on('click', '> .card-header [data-card-collapsible-toggle]', function (event) {
