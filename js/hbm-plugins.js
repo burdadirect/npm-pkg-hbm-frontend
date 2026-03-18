@@ -79,6 +79,7 @@ jQuery.fn.hbm_initCollapsibleCards = function (options) {
 
   var defaults = jQuery.extend({
     btn: 'btn btn-secondary float-right',
+    icon: '',
     iconOpen: 'fa fa-chevron-down',
     iconClose: 'fa fa-chevron-up',
   }, options);
@@ -98,10 +99,10 @@ jQuery.fn.hbm_initCollapsibleCards = function (options) {
 
     var icon = null;
     if (state === 'closed') {
-      icon = '<i class="card-collapsible-icon ' + settings['iconOpen'] + '"></i>';
+      icon = '<i class="card-collapsible-icon ' + settings['icon'] + ' ' + settings['iconOpen'] + '"></i>';
     }
     if (state === 'open') {
-      icon = '<i class="card-collapsible-icon ' + settings['iconClose'] + '"></i>';
+      icon = '<i class="card-collapsible-icon ' + settings['icon'] + ' ' + settings['iconClose'] + '"></i>';
     }
     if (icon) {
       var $header = $element.find('> .card-header.card-header-collapsible-toggle');
