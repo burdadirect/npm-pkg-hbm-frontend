@@ -137,6 +137,10 @@
       background-color: $card-cap-bg;
       border-top: 1px solid $card-border-color;
       border-bottom: 1px solid $card-border-color;
+
+      &.card-separator-header-m0 {
+        margin-top: -$card-spacer-y;
+      }
     }
     .card-divider {
       padding-bottom: 2rem;
