@@ -1,0 +1,16 @@
+/******************************************************************************/
+/* CALLOUT                                                                    */
+/******************************************************************************/
+
+.callout {
+  border: $hbm-callout-border-width solid $hbm-callout-border-color;
+  @include border-radius($hbm-callout-border-radius);
+  padding: $hbm-callout-padding;
+
+  @each $color, $value in $theme-colors {
+    &.callout-#{$color} {
+      border-left-width: $hbm-callout-intensity;
+      border-left-color: theme-color-level($color, $hbm-callout-color-level);
+    }
+  }
+}

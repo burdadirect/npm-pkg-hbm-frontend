@@ -22,3 +22,12 @@ $hbm-resonable-paragraphs-margin: 1rem !default;
 
 $table-hover-bg: rgba(0,0,0,.045);
 $table-accent-bg: $table-hover-bg;
+
+/******************************************************************************/
+
+$hbm-callout-border-width:  $card-border-width !default;
+$hbm-callout-border-color:  $card-border-color !default;
+$hbm-callout-border-radius: $card-border-radius !default;
+$hbm-callout-intensity:     6px !default;
+$hbm-callout-padding:       $card-spacer-x !default;
+$hbm-callout-color-level:   0 !default;
