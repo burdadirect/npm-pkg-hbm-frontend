@@ -52,6 +52,7 @@
     "last 2 versions"
   ],
   "files": [
+    "fonts/**/*.*",
     "gulp/**/*.js",
     "img/**/*.*",
     "js/**/*.js",
