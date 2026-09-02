@@ -1,0 +1,109 @@
+/******************************************************************************/
+/* BURDA NOW - FONTS                                                          */
+/******************************************************************************/
+
+$burdaNowFontPath: '';
+
+@font-face {
+  font-family: "Burda Now";
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+  src:
+    url("#{$burdaNowFontPath}/woff2/BurdaNow-Regular.woff2") format("woff2"),
+    url("#{$burdaNowFontPath}/woff/BurdaNow-Regular.woff") format("woff"),
+    url("#{$burdaNowFontPath}/ttf/BurdaNow-Regular.ttf") format("truetype"),
+    url("#{$burdaNowFontPath}/otf/BurdaNow-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Burda Now";
+  font-weight: 400;
+  font-style: italic;
+  font-display: block;
+  src:
+    url("#{$burdaNowFontPath}/woff2/BurdaNow-Regular-Italic.woff2") format("woff2"),
+    url("#{$burdaNowFontPath}/woff/BurdaNow-Regular-Italic.woff") format("woff"),
+    url("#{$burdaNowFontPath}/ttf/BurdaNow-Regular-Italic.ttf") format("truetype"),
+    url("#{$burdaNowFontPath}/otf/BurdaNow-Regular-Italic.otf") format("opentype");
+}
+
+/******************************************************************************/
+
+@font-face {
+  font-family: "Burda Now";
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+  src:
+    url("#{$burdaNowFontPath}/woff2/BurdaNow-Bold.woff2") format("woff2"),
+    url("#{$burdaNowFontPath}/woff/BurdaNow-Bold.woff") format("woff"),
+    url("#{$burdaNowFontPath}/ttf/BurdaNow-Bold.ttf") format("truetype"),
+    url("#{$burdaNowFontPath}/otf/BurdaNow-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Burda Now";
+  font-weight: 700;
+  font-style: italic;
+  font-display: block;
+  src:
+    url("#{$burdaNowFontPath}/woff2/BurdaNow-Bold-Italic.woff2") format("woff2"),
+    url("#{$burdaNowFontPath}/woff/BurdaNow-Bold-Italic.woff") format("woff"),
+    url("#{$burdaNowFontPath}/ttf/BurdaNow-Bold-Italic.ttf") format("truetype"),
+    url("#{$burdaNowFontPath}/otf/BurdaNow-Bold-Italic.otf") format("opentype");
+}
+
+/******************************************************************************/
+/* BURDA NOW TALL                                                             */
+/******************************************************************************/
+
+@font-face {
+  font-family: "Burda Now Tall";
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+  src:
+    url("#{$burdaNowFontPath}/woff2/BurdaNow-Tall-Regular.woff2") format("woff2"),
+    url("#{$burdaNowFontPath}/woff/BurdaNow-Tall-Regular.woff") format("woff"),
+    url("#{$burdaNowFontPath}/ttf/BurdaNow-Tall-Regular.ttf") format("truetype"),
+    url("#{$burdaNowFontPath}/otf/BurdaNow-Tall-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Burda Now Tall";
+  font-weight: 400;
+  font-style: italic;
+  font-display: block;
+  src:
+    url("#{$burdaNowFontPath}/woff2/BurdaNow-Tall-Regular-Italic.woff2") format("woff2"),
+    url("#{$burdaNowFontPath}/woff/BurdaNow-Tall-Regular-Italic.woff") format("woff"),
+    url("#{$burdaNowFontPath}/ttf/BurdaNow-Tall-Regular-Italic.ttf") format("truetype"),
+    url("#{$burdaNowFontPath}/otf/BurdaNow-Tall-Regular-Italic.otf") format("opentype");
+}
+
+/******************************************************************************/
+
+@font-face {
+  font-family: "Burda Now Tall";
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+  src:
+    url("#{$burdaNowFontPath}/woff2/BurdaNow-Tall-Bold.woff2") format("woff2"),
+    url("#{$burdaNowFontPath}/woff/BurdaNow-Tall-Bold.woff") format("woff"),
+    url("#{$burdaNowFontPath}/ttf/BurdaNow-Tall-Bold.ttf") format("truetype"),
+    url("#{$burdaNowFontPath}/otf/BurdaNow-Tall-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Burda Now Tall";
+  font-weight: 700;
+  font-style: italic;
+  font-display: block;
+  src:
+    url("#{$burdaNowFontPath}/woff2/BurdaNow-Tall-Bold-Italic.woff2") format("woff2"),
+    url("#{$burdaNowFontPath}/woff/BurdaNow-Tall-Bold-Italic.woff") format("woff"),
+    url("#{$burdaNowFontPath}/ttf/BurdaNow-Tall-Bold-Italic.ttf") format("truetype"),
+    url("#{$burdaNowFontPath}/otf/BurdaNow-Tall-Bold-Italic.otf") format("opentype");
+}
