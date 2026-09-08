@@ -87,8 +87,8 @@ jQuery.fn.hbm_initCollapsibleCards = function (options) {
   this.each(function () {
     var $element = jQuery(this);
 
-    if ($element.hasAttribute('data-card-collapsible-initiated')) {
-      return
+    if ($element.attr('data-card-collapsible-initiated') === true) {
+      return;
     }
 
     var optionsCustom = {};
