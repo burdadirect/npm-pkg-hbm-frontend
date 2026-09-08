@@ -87,7 +87,7 @@ jQuery.fn.hbm_initCollapsibleCards = function (options) {
   this.each(function () {
     var $element = jQuery(this);
 
-    if ($element.attr('data-card-collapsible-initiated') === true) {
+    if ($element.attr('data-card-collapsible-initiated')) {
       return;
     }
 
@@ -123,7 +123,7 @@ jQuery.fn.hbm_initCollapsibleCards = function (options) {
       jQuery(this).find('.card-collapsible-icon').toggleClass(settings['iconOpen']).toggleClass(settings['iconClose']);
     });
 
-    $element.attr('data-card-collapsible-initiated', true);
+    $element.attr('data-card-collapsible-initiated', 1);
   });
 
   return this;
